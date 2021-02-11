@@ -6,6 +6,11 @@ from blog.forms import CreatePost, UpdatePost
 from blog.models import Post, Topic
 
 
+def users(request):
+    users = User.objects.all()
+    print(users)
+    return render(request, "blog/base.html", {"users": users}) 
+
 
 def landing_page(request):
     return render(request, "blog/landing_page.html", {})

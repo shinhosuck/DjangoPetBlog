@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    <title>Welcome to PawPal</title>
+{% endblock title %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+<div class="landing-page-bg">
+    <nav class="landing-page-nav-bg">
+        <ul class="landing-page-nav-container">
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'blog:home' %}">Explore</a>
+            </li>
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'users:register' %}">Register</a>
+            </li>
+            <li class="landing-page-nav-item">
+                <a class="landing-page-nav-link" href="{% url 'users:login' %}">Sign In</a>
+            </li>
+        </ul>
+        <div class="landing-page-container">
+            <div class="landing-page-text-container">
+                <div class="landing-page-header-container">
+                    <h1 class="landing-page-title">Welcome to PawPal</h1>
+                    <p class="landing-page-paragraph"> 
+                        A place where you can learn about pet welfare, and share your thoughts  and expertise on their well-being.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+{% endblock content %}

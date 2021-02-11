@@ -1,0 +1,67 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Register</title>
+{% endblock title %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+
+<style>
+   strong {
+        color: rgb(255, 128, 128);
+        font-size: 0.8rem;
+        font-family: sans-serif;
+    }
+    #div_id_username {
+        margin-top: 0.8rem;
+    }
+    #div_id_email {
+        margin-top: 0.8rem;
+    }
+    #div_id_password1 {
+        margin-top: 0.8rem;
+    }
+    #div_id_password2 {
+        margin-top: 0.8rem;
+    }
+    #hint_id_username {
+        display: none;
+    }
+    #hint_id_password1 {
+        display: none;
+    }
+    #hint_id_password2 {
+        display: none;
+    }
+    #id_username {
+        border: none;
+    }
+    #id_email {
+        border: none;
+    }
+    #id_password1 {
+        border: none;
+    }
+    #id_password2 {
+        border: none;
+    }
+</style>
+<div class="register-bg-img">
+    <div class="register-form-row">
+        <div class="register-form-col">
+            <h2>Sign up</h2>
+            <form action="#" method="Post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="register-btn">Submit</button>
+                <a class="register-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
+            </form>
+            <small class="register-form-small">Have an account?<a href="{% url 'users:login' %}">Sign in</a></small>
+        </div>
+    </div>
+</div>
+{% endblock content %}

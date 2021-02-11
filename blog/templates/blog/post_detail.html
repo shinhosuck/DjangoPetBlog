@@ -1,0 +1,46 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    <title>{{post.title}}-detail</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="post-detail-row">
+        {% for message in messages %}
+            <p class="post-detail-message">{{ message }}</p>
+        {% endfor %}
+        <h2 class="post-detail-header">Post Detail</h2>
+        <div class="post-detail-col">
+            <div class="post-detail-img-text-container">
+                <img class="post-detail-img" src="{{ post.post_image.url }}" alt="post image">
+                <div class="post-detail-text-container">
+                    <small class="post-detail-author">
+                        <i class="fas fa-user post-detail-author-icon"></i>
+                        {{ post.author }}
+                    </small>
+                    <small class="post-detail-date-posted">
+                        <i class="fas fa-calendar post-detail-calendar-icon"></i>
+                        {{ post.date_posted|date:"N, d, Y"}}
+                    </small>
+                    <a class="post-detail-like-count" href="{% url 'blog:post-like' post.pk %}">
+                        <i class="fas fa-thumbs-up post-detail-thumbs-up-icon"></i>
+                        {{ post.likes.count }}
+                    </a>
+                    <h3 class="post-detail-title">{{ post.title }}</h3>
+                </div>
+            </div>
+            <div class="post-detail-content-container">
+                {% if post in user.post_set.all %}
+                <p class="post-detail-content-paragraph">
+                    {{ post.content }}
+                    <a class="post-detail-update-post" href="{% url 'blog:update-post' post.pk %}">Update post</a>
+                </p>
+                {% else %}
+                <p class="post-detail-content-paragraph">
+                    {{ post.content }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

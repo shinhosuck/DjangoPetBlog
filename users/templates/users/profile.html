@@ -1,0 +1,81 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>{{ user.username }}'s Profile</title>
+{% endblock title %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+<style>
+    #div_id_username {
+        margin-top: 0.8rem;
+    }
+    #div_id_email {
+        margin-top: 0.8rem !important;
+    }
+    #div_id_image {
+        margin-top: 0.8rem !important;
+    }
+    #div_id_image div {
+        font-size: 0.8rem;
+    }
+    #div_id_image a {
+        color: rgb(180, 180, 180);
+        text-decoration: none;
+    }
+    #error_1_id_username {
+        font-family: sans-serif;
+        color: rgb(255, 128, 128);
+        font-size: 0.8rem;
+    }
+    #id_username {
+        border: none;
+        box-shadow: none;
+        background: white;
+    }
+    #hint_id_username {
+        display: none;
+    }
+    #error_1_id_email {
+        font-size: 0.8rem;
+        font-family: sans-serif;
+        color: rgb(255, 128, 128)
+    }
+    #id_email {
+        border: none;
+        box-shadow: none;
+        background: white;
+    }
+</style>
+<div class="profile-bg-img">
+    <div class="profile-row">
+        {% for message in messages %}
+            <div class="profile-message-container">
+                <p class="profile-message-text">{{ message }}</p>
+            </div>
+        {% endfor %}
+        <div class="profile-col">
+            <h3>{{ user.username }}'s profile</h3>
+            <div class="profile-img-text">
+                <img class="profile-img" src="{{ user.profile.image.url }}" alt="profile image">
+                <div class="small-container">
+                    <small class="user-username">User: {{ user.username }}</small>
+                    <small class="user-email">Email: {{ user.email }}</small>
+                </div>
+            </div>
+            <div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                    <button class="profile-update-btn">Update</button>
+                    <a class="profile-update-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

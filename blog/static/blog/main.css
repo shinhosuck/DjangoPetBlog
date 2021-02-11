@@ -22,7 +22,7 @@ body {
 /* LANDING_PAGE.HTML */
 .landing-page-bg {
     min-height: 100vh;
-    background: url("images/lp.jpg");
+    background-image: url("images/lp.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

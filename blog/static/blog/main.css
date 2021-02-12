@@ -119,7 +119,7 @@ BASE.HTML
 /* nav-bar */
 .bg-img {
     min-height: 70vh;
-    background: url("images/bg.jpg");
+    background-image: url("images/bg.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;

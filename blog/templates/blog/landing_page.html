@@ -1,36 +1,91 @@
-{% extends "blog/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block title %}
-    <title>Welcome to PawPal</title>
-{% endblock title %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
 
-{% block navbar %}
-{% endblock navbar %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
-{% block content %}
-<div class="landing-page-bg">
-    <nav class="landing-page-nav-bg">
-        <ul class="landing-page-nav-container">
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'blog:home' %}">Explore</a>
-            </li>
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'users:register' %}">Register</a>
-            </li>
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'users:login' %}">Sign In</a>
-            </li>
-        </ul>
-        <div class="landing-page-container">
-            <div class="landing-page-text-container">
-                <div class="landing-page-header-container">
-                    <h1 class="landing-page-title">Welcome to PawPal</h1>
-                    <p class="landing-page-paragraph"> 
-                        A place where you can learn about pet welfare, and share your thoughts  and expertise on their well-being.
-                    </p>
+    <title> Welcome to PawPal</title>
+</head>
+<body>
+    <div class="landing-page-wrapper">
+        <nav class="landing-page-nav-wrapper">
+            <div class="brand-text-logo">
+                <div class="btns-wrapper">
+                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-times"></i>
                 </div>
+                <a href="{% url 'blog:landing_page' %}" class="landing-page-link">
+                    <img src="{% static 'blog/images/paw.png' %}" alt="">
+                    <h5>PawPal<span>Pet Blog</span></h5>
+                </a>
+            </div>
+
+            <ul class="landing-page-nav-items">
+                <li class="landing-page-nav-item">
+                    <a href="{% url 'blog:home' %}">Explore</a>
+                </li>
+                <li class="landing-page-nav-item">
+                    <a href="{% url 'users:register' %}">Register</a>
+                </li>
+                <li class="landing-page-nav-item">
+                    <a href="{% url 'users:login' %}">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="landing-page-text">
+            <h1 class="landing-page-title">Can't Live Without Them!</h1>
+            <h5 class="landing-page-paragraph"> 
+                Please join to share your expertise, thoughts, and concerns.
+            </h5>
+            <div class="landing-page-button">
+                <a href="{% url 'users:register' %}">Join Now</a>
             </div>
         </div>
-    </nav>
-</div>
-{% endblock content %}
+    </div>
+    
+
+    <script type="text/javascript">
+
+        const navItems = document.querySelector(".landing-page-nav-items")
+        const faBars = document.querySelector(".fa-bars")
+        const faTimes = document.querySelector(".fa-times")
+
+        faBars.addEventListener("click", function(){
+            navItems.classList.add("show-mbile-nav")
+            faBars.style.display = "none"
+            faTimes.style.display = "block"
+        })
+
+
+        faTimes.addEventListener("click", function(){
+            navItems.classList.remove("show-mbile-nav")
+            faBars.style.display = "block"
+            faTimes.style.display = "none"
+        })
+
+        window.addEventListener("resize", function(){
+            if(window.innerWidth > 555) {
+                faTimes.style.display = "none"
+                faBars.style.display = "block"
+                navItems.classList.remove("show-mbile-nav")
+            }
+        })
+
+    </script>
+
+</body>
+</html>

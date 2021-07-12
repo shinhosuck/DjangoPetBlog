@@ -18,51 +18,65 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     
+
+    <style>
+
+        .active {
+            color: rgb(255, 136, 0) !important;
+        }
+
+    </style>
+
     <title>
     {% block title %}
       
     {% endblock title %}
     </title>
 </head>
-<body>
+<body style="background: rgb(230, 230, 230);">
     <header>
         {% block navbar%}
         <nav class="bg-img">
-            <div class="nav-bg-color">
-                <div class="navbar-container">
-                    <div class="brand-name">
-                        <a class="brand-link" href="{% url 'blog:home' %}">PawPals</a>
-                        <button class="btn-toggle">
-                            <i class="fas fa-bars font-awesome"></i>
-                        </button>
+            <div class="navbar-container">
+                <div class="brand-name">
+                    <div class="btn-toggle">
+                        <i class="fas fa-bars bars"></i>
+                        <i class="fa fa-times times"></i>
                     </div>
-                    <ul class="links">
-                        {% if user.is_authenticated %}
-                            <li class="link"><a href="{% url 'blog:home' %}">Home</a></li>
-                            <li class="link"><a href="{% url 'blog:my_posts'  user.pk %}">My Posts</a></li>
-                            <li class="link"><a href="{% url 'blog:create-post' %}">New Post</a></li>
-                            <li class="link"><a href="{% url 'users:profile' %}">Profile</a></li>
-                            <li class="link"><a href="{% url 'users:logout' %}">Sign Out</a></li>
-                        {% else %}
-                            <li class="link"><a href="#">About</a></li>
-                            <li class="link"><a href="{% url 'users:login' %}">Sign In</a></li>
-                            <li class="link"><a href="{% url 'users:register' %}">Register</a></li>
-                            <li class="link"><a href="{% url 'blog:landing_page' %}">Exit Site</a></li>
-                        {% endif %}
-                    </ul>
+                    <a class="brand-link" href="{% url 'blog:home' %}">
+                        <img src="{% static 'blog/images/paw.png' %}" alt="">
+                        <h5>PawPals<span>Forums</span></h5>
+                    </a>
                 </div>
-                <div class="profile-container">
+               
+                <ul class="links">
                     {% if user.is_authenticated %}
-                        <div class="profile-column">
-                            <div class="profile-small-container">
-                                <small class="profile-user-name">User: {{ user.username }}</small>
-                                <small class="profile-user-name">Joined: {{ user.date_joined|date:"N, d, Y" }}</small>
-                                <small class="profile-user-email">Email: {{ user.email }}</small>
-                            </div>
-                            <img  class="profile-main-img" src="{{ user.profile.image.url }}" alt="profile image">
-                        </div>
+                        {% with request.resolver_match.url_name as url_name %}
+                        <li class="link">
+                            <a class="{% if url_name == 'home' %} active {% endif %}" href="{% url 'blog:home' %}">Home</a>
+                        </li>
+                        <li class="link">
+                            <a class="{% if url_name == 'my_posts' %} active {% endif %}" href="{% url 'blog:my_posts'  user.pk %}">My Posts</a>
+                        </li>
+                        <li class="link">
+                            <a href="{% url 'blog:create-post' %}">New Post</a>
+                        </li>
+                        <li class="link">
+                            <a href="{% url 'users:profile' %}">Profile</a>
+                        </li>
+                        <li class="link">
+                            <a href="{% url 'users:logout' %}">Sign Out</a>
+                        </li>
+                        {% endwith %}
+                    {% else %}
+                        <li class="link">
+                            <a href="{% url 'users:login' %}">Sign In</a>
+                        </li>
+                        <li class="link">
+                            <a href="{% url 'users:register' %}">Register</a>
+                        </li>
                     {% endif %}
-                </div>
+                </ul>
             </div>
         </nav>
         {% endblock navbar%}
@@ -71,8 +85,40 @@
         {% block content %} 
         {% endblock content %}
     </main>
-    <!-- javascript -->
     <script src="{% static 'blog/main.js' %}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
+
+
+
+    <script type="text/javascript">
+    
+        const bars = document.querySelector(".bars")
+        const times = document.querySelector(".times")
+        const links = document.querySelector(".links")
+
+        bars.addEventListener("click", function(){
+            links.classList.add("show-mobile-nav-links")
+            bars.style.display = "none"
+            times.style.display = "block"
+            document.body.style.overflow = "hidden"
+        })
+
+        times.addEventListener("click", function(){
+            links.classList.remove("show-mobile-nav-links")
+            bars.style.display = "block"
+            times.style.display = "none"
+            document.body.style.overflow = "scroll"
+        })
+
+    
+        window.addEventListener("resize", function(){
+            if(window.innerWidth > 700) {
+                times.style.display = "none"
+                bars.style.display = "block"
+                links.classList.remove("show-mobile-nav-links")
+                document.body.style.overflow = "scroll"
+            }
+        })
+    </script>
 </body>
 </html>

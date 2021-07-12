@@ -1,8 +1,12 @@
 {% extends "blog/base.html" %}
 
-{% block title %}
-    <title>Posts-{{topic.name}}</title>
-{% endblock title %}
+
+    <title>
+    {% block title %}
+        Posts-{{topic.name}}
+    {% endblock title %}
+    </title>
+
 
 {% block content %}
     <div class="topic-post-row">

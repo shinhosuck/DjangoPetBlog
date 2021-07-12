@@ -24,8 +24,8 @@ LANDING_PAGE.HTML
 =================*/
 
 .landing-page-wrapper {
-    background: linear-gradient(rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.4)), url("images/lp.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/lp.jpg");
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
@@ -70,22 +70,25 @@ LANDING_PAGE.HTML
 }
 
 .landing-page-link > img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-right: 0.5rem;
 }
 
 .landing-page-link > h5 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: rgb(255, 255, 255);
     letter-spacing: 0.1rem;
+    border-left: 1px solid rgb(100, 100, 100);
+    padding-left: 0.5rem;
+    font-weight: 400;
 }
 
 .landing-page-link > h5 > span {
     display: block;
     color: rgb(200, 200, 200);
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: 300;
     letter-spacing: 0.06rem;
 }
 
@@ -94,6 +97,7 @@ LANDING_PAGE.HTML
     align-items: center;
     list-style-type: none;
     margin-bottom: 0;
+    padding: 0;
 }
 
 .landing-page-nav-item > a {
@@ -101,7 +105,8 @@ LANDING_PAGE.HTML
     padding: 1.5rem 1rem;
     text-decoration: none;
     letter-spacing: 0.06rem;
-    color: rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
+    font-weight: 400;
 }
 
 .landing-page-text {
@@ -167,6 +172,7 @@ LANDING_PAGE.HTML
 
     .brand-text-logo {
         flex: 0 0 100%;
+        width: 100%;
         background: rgba(0, 0, 0, 0.6);
     }
 
@@ -178,7 +184,7 @@ LANDING_PAGE.HTML
     .landing-page-link {
         flex: 1;
         justify-content: center;
-        padding: 0.7rem 0;
+        padding: 0.5rem 0;
     }
 
     .landing-page-nav-items {
@@ -186,7 +192,7 @@ LANDING_PAGE.HTML
         flex-direction: column;
         align-items: flex-start;
         z-index: 1;
-        top: 82px;
+        top: 66px;
         left: -100%;
         height: 100vh;
         overflow: hidden;
@@ -241,137 +247,130 @@ LANDING_PAGE.HTML
     .landing-page-title {
         line-height: 1.1;
     }
-    /* .landing-page-paragraph {
-        line-height: ;
-    } */
 }
 
 /*===================
 END LANDING_PAGE.HTML
 =====================*/
 
-/*
-==========
+/*=======
 BASE.HTML
-==========
-*/
-/* nav-bar */
+=========*/
+
 .bg-img {
-    min-height: 70vh;
-    background-image: url("images/bg.jpg");
-    background-position: center;
+    min-height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.1)),url("images/bg.jpg");
+    background-position: center center;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-.nav-bg-color {
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.9),
-   rgb(255, 255, 255, 0));
-     min-height: 70vh;
-}
+
 .navbar-container {
+    width: 70%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border: 1px solid rgb(255, 255, 255);
 }
+
 .brand-name {
     display: flex;
+    align-items: center;
 }
+
 .brand-link {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: rgb(255, 165, 0);
-    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: flex-end;
     text-decoration: none;
+    padding: 0 1rem;
 }
-.brand-link:hover {
-    background:  rgb(51, 27, 0);
-    color: rgb(255, 165, 0) !important;
+
+.brand-link > img {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5rem;
+}
+
+.brand-link > h5 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.1rem;
+    border-left: 1px solid rgb(100, 100, 100);
+    padding-left: 0.5rem;
+}
+
+.brand-link > h5 > span {
+    font-size: 1rem;
+    color: rgb(200, 200, 200);
+    display: block;
+    letter-spacing: 0.06rem;
+    font-weight: 300;
+}
+.btn-toggle > i {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    width: 40px;
+    cursor: pointer;
 }
 .btn-toggle {
-    outline: none !important;
-    border: none;
-    background: transparent;
     display: none;
 }
-.font-awesome {
-    font-size: 2.5rem;
-    color: white;
+
+.btn-toggle > .times {
+    display: none;
 }
+
+.btn-toggle > i {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+}
+
 .links {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 0;
-    padding-left: 0;
     align-items: center;
-}
-.link {
     list-style-type: none;
-    padding: 1rem;
+    padding: 0;
 }
-.link:hover {
-    background: rgb(51, 27, 0);
-}
-.link a {
+
+.link > a {
+    display: inline-block;
+    padding: 1.5rem 1rem;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    font-size: 0.9rem;
+    font-size: 1rem;
+    letter-spacing: 0.06rem;
 }
-.link a:hover {
-    color: rgb(255, 255, 255)
+
+@media (hover) {
+    .link a:hover {
+        color: rgb(200, 200, 200)
+    }
 }
-.show-links {
-    align-items: flex-start;
-    flex: 0 0 100%;
-    padding-left: 0;
-    flex-direction: column;
-}
+
 .profile-container {
-    min-height: 60vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.profile-column {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-right: 1rem;
-    border-radius: 45px;
+    padding: 0 1rem;
+   
+}
+.profile-container > img {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    transition: all 0.4s ease-in-out
 }
-.profile-main-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    animation: bounce 3s ease-in-out infinite;
-}
-@keyframes bounce {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+
 .profile-small-container {
-    margin-right: 0.5rem;
-    padding-left: 1rem;
-    opacity: 0;
-    transition: all 0.4s ease-in-out
+    display: none;
 }
-.profile-column:hover {
-    background: rgba(70, 32, 0, 0.8);
-}
-.profile-column:hover .profile-small-container {
-    opacity: 1;
-}
+
 .profile-user-name {
     color: rgb(255, 255, 255);
     text-align: start;
@@ -385,49 +384,78 @@ BASE.HTML
     display: block;
     font-size: 0.7rem;
 }
+
 @media screen and (max-width: 700px) {
+
     .navbar-container {
-        justify-content: flex-start;
+        position: relative;
     }
-    .brand-name {
-        flex: 0 0 100%;
-        justify-content: space-between;
-    }
+
     .btn-toggle {
         display: block;
-        padding: 0.25rem 1rem;
+        padding-left: 1.5rem;
     }
-    .links {
-        height: 0;
-        overflow: hidden;
-    }
-    .link {
-        width: 100%
-    }
-}
-/*@media screen and (max-width: 1025px) {
-    .bg-img {
-        min-height: 30vh;
-    }
-}
-@media screen and (max-width: 415px) {
-    .bg-img {
-        min-height: 25vh;
-    }
-}*/
-/* end nav-bar */
-/* END BASE.HTML */
 
-/* INDEX.HTML */
+   .brand-name {
+      flex: 0 0 100%;
+      width: 100%;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.6);
+   }
+
+   .brand-link {
+       padding: 0.5rem 0;
+       justify-content: center;
+       flex: 1;
+   }
+
+    .links {
+       position: absolute;
+       top: 66px;
+       left: 0;
+       height: 100vh;
+       left: -100%;
+       background: rgba(0, 0, 0, 0.6);
+       flex-direction: column;
+       align-items: flex-start;
+
+       padding: 0;
+       transition: left 0.25s linear;
+    }
+
+    .show-mobile-nav-links {
+        width: 100%;
+        left: 0;
+        transition: left 0.25s linear;
+    }
+
+    .link > a {
+        padding: 1rem 1.5rem;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+}
+
+/*===========
+END BASE.HTML
+=============*/
+
+/*========
+INDEX.HTML
+==========*/
+
 .post-main-container {
+    width: 70%;
+    margin: 0 auto;
+    /* padding: 1.5rem 0; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 7rem;
-    padding: 1.5rem 0;
+    border: 1px solid blue;
 }
 .post-row {
-    flex: 0 0 70%;
+    flex: 0 0 100%;
+    width: 100%
 }
 .post-col {
     margin-bottom: 3rem;
@@ -456,7 +484,7 @@ BASE.HTML
     flex: 0 0 100%;
     display: flex;
     flex-wrap: wrap;
-    background:rgb(231, 231, 231);
+    background:rgb(255, 255, 255);
     padding: 0.7rem;
     margin: 0.5rem;
     border-radius: 5px;

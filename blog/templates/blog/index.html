@@ -1,8 +1,12 @@
 {% extends "blog/base.html" %}
 
-{% block title %}
-    <title>PawPal Home</title>
-{% endblock title %}
+
+    <title>
+    {% block title %}
+        PawPal Home
+    {% endblock title %}
+    </title>
+
 
 {% block content %}
     <div class="post-main-container">
@@ -186,13 +190,50 @@
                     {% endif %}
                 {% endfor %}
             </div>
+            <div class="post-col">
+                {% for topic in topics %}
+                    {% if topic.name == "General" %}
+                    <a class="post-header-container" href="{% url 'blog:post-topic' topic.pk %}">
+                        <h2 class="post-topic-header">{{ topic.name }}
+                            <small class="post-topic-small">click to see past posts</small>
+                        </h2>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
+                    {% if post.topic.name == "General" %}
+                    <div class="post-latest">
+                        <img class="post-latest-img" src="{{ post.post_image.url }}" alt="post image">
+                        <div class="post-latest-text-container">
+                            <h5 class="post-latest-post-title">{{ post.title}}</h5>
+                            <small class="post-latest-post-author">
+                                <i class="fas fa-user post-latest-user-icon"></i>
+                                {{ post.author }}
+                            </small>
+                            <small class="post-latest-date-posted">
+                                <i class="fas fa-calendar post-latest-calendar-icon"></i>
+                                {{ post.date_posted|date:"N, d, Y"}}
+                            </small>
+                            <i class="fas fa-thumbs-up post-latest-thumbs-up-icon"></i>
+                            <span class="post-latest-likes-count">{{ post.likes.count}}</span>
+                        
+                            <p class="post-latest-content">
+                                {{ post.content|truncatechars:245}}
+                                <a class="post-latest-read-more" href="{% url 'blog:post-detail' post.pk %}">Read more</a>
+                            </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        <div class="top-stories-container">
+        {% comment %}
+        <!-- <div class="top-stories-container">
             {% for topic in topics %}
-                {% if topic.name == "Misc." %}
+                {% if topic.name == "General" %}
                 <a href="{% url 'blog:post-topic' topic.pk %}" class="top-stories-link">
                     <h5 class="top-stories-header">
-                        {{ topic.name }} Posts
+                        {{ topic.name }} Discussion
                         <small class="top-stories-small-link">click for more</small>
                     </h5>
                 </a>
@@ -200,7 +241,7 @@
             {% endfor %}
             <div class="top-stories">
                 {% for post in posts%}
-                    {% if post.topic.name == "Misc." %}
+                    {% if post.topic.name == "General" %}
                         <div class="top-stories-text-container">
                             <img class="top-stories-img" src="{{ post.post_image.url }}" alt="post image">
                             <div class="top-stories-content-container">
@@ -223,7 +264,8 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        </div>
+        </div> -->
+        {% endcomment%}
     </div>
 {% endblock content %}
     

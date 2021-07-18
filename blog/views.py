@@ -33,10 +33,10 @@ def create_post(request):
 def index(request):
     posts = []
     topics = Topic.objects.all()
-    for topic in topics:
-        posts += topic.post_set.all()[0:4]
+    # for topic in topics:
+    #     posts += topic.post_set.all()[0:4]
     context = {
-        "posts": posts,
+        # "posts": posts,
         "topics": topics
     }
     return render(request, "blog/index.html", context)

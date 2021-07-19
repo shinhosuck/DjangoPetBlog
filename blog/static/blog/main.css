@@ -460,9 +460,8 @@ footer {
 }
 
 .footer-container {
-    width: 80%;
+    width: 1083px;
     margin: 0 auto;
-    padding: 1rem 0;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -472,27 +471,129 @@ footer {
 .footer-content-wrapper {
     flex: 0 0 30%;
     width: 30%;
-    border: 1px solid rgb(22, 68, 95)
 }
 .footer-title {
     padding: 1rem;
+    text-align: center;
 }
+
 .footer-title > h6 {
+    display: inline-block;
     color: rgb(255, 255, 255);
     letter-spacing: 0.05rem;
-    font-size: 1.1rem;
-    text-align: center;
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    border-bottom: 2px solid rgb(0, 119, 199);
 
 }
-.footer-links {
-    margin-top: 1rem;
-}
+
 .footer-links > a {
-    color: rgb(0, 174, 255);
+    color: rgb(201, 201, 201);
     display: block;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.7rem;
+    letter-spacing: 0.05rem;
 }
+
+.footer-contact > p {
+    color: rgb(255, 142, 36);
+    text-align: center;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0;
+}
+
+.footer-contact > p > a {
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.05rem;
+    font-weight: normal;
+}
+
+.footer-contact > p > i {
+    color: rgb(0, 125, 197);
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+.linkedIn-link > i {
+    color: rgb(255, 255, 255) !important;
+    background: rgb(0, 125, 197);
+    font-size: 1.5rem !important;
+    margin-right: 0 !important;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+}
+
+.form-content {
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgb(0, 55, 87);
+}
+
+.contact-submit {
+    background: rgb(236, 75, 0);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: none;
+    letter-spacing: 0.05rem;
+    outline: none !important;
+}
+
+@media (hover) {
+    .contact-submit:hover {
+        background:rgb(255, 102, 0);
+        color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 1083px) {
+    .footer-container {
+        width: 974px;
+    }
+}
+
+@media screen and (max-width:974px) {
+    .footer-container {
+        width: 876px;
+    }
+}
+
+@media screen and (max-width:876px) {
+    .footer-container {
+        width: 788px;
+        justify-content: center;
+    }
+
+    .footer-content-wrapper {
+        flex: 0 0 55%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width:788px) {
+    .footer-container {
+        width: 90%;
+    }
+
+    .footer-content-wrapper {
+        flex: 0 0 388px;
+        width: 388px;
+    }
+}
+
+@media screen and (max-width:788px) {
+    .footer-content-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
 
 /* end of footer */
 
@@ -520,8 +621,9 @@ INDEX.HTML
     padding: 1rem;
     color: white;
     letter-spacing: 0.05rem;
-    border-radius: 8px;
+    border-radius: 10px;
     background: rgb(24, 84, 119);
+    box-shadow: 2px 2px 6px rgb(100, 108, 110);
 }
 
 .topics-content-wrapper {
@@ -542,7 +644,7 @@ INDEX.HTML
     border-radius: 8px;
     background: rgb(215, 234, 238);
     transition: transform 0.3s linear, box-shadow 0.3s linear;
-    box-shadow: 2px 2px 6px 2px rgb(198, 214, 219);
+    box-shadow: 2px 2px 6px rgb(176, 191, 196);
 }
 
 .topic-content-card > img {
@@ -595,12 +697,13 @@ INDEX.HTML
     color: rgb(255, 255, 255);
     border-radius: 30px;
     margin-top: 1rem;
-
+    transition: background 0.25s linear;
 }
 
 @media (hover) {
     .learn-more-btn:hover {
         background:rgb(255, 102, 0);
+        transition: background 0.25s linear;
         color: rgb(255, 255, 255);
     }
 }

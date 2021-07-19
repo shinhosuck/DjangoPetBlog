@@ -25,11 +25,76 @@
             color: rgb(255, 136, 0) !important;
         }
 
+        .form-content {
+            margin-top: 1rem;
+        }
+
+        p > label {
+            color: rgb(255, 255, 255);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            text-align: start !important;
+        }
+
+        p > input, textarea {
+            width: 100%;
+            padding: 0.4rem 1rem;
+            outline: none;
+            border: none;
+            background: rgb(191, 221, 226);
+            color: rgb(0, 0, 0);
+            resize: none;
+            border-radius: 3px;
+        }
+
+        p > textarea {
+            height: 100px;
+            width: 100%;
+        }
+
+        .contact-message-wrapper {
+           position: absolute;
+           z-index: 3;
+           left: 50%;
+           width: 200px;
+           height: auto;
+           transform: translateX(-50%);
+           border-radius: 8px;
+           background: rgb(255, 255, 255);
+
+           animation-name: dropMessage;
+           animation-timing-function: linear;
+           animation-duration: 1s;
+           animation-delay: 0s;
+           animation-fill-mode: forwards;
+           animation-iteration-count: 1;
+
+        }
+
+        .contact-message {
+            color: rgb(0, 32, 92);
+            text-align: center;
+            font-weight: 500;
+            padding: 1rem 1rem 0 1rem;
+            letter-spacing: 0.05rem;
+            line-height: 1.5;
+        }
+
+        @keyframes dropMessage {
+            from {
+                top: -100%;
+            }
+
+            to {
+                top: 70px;
+            }
+        }
     </style>
 
     <title>
     {% block title %}
-      
+    
     {% endblock title %}
     </title>
 </head>
@@ -82,6 +147,14 @@
         {% endblock navbar%}
     </header>
     <main>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="contact-message-wrapper">
+                    <p class="contact-message">{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
         {% block content %} 
         {% endblock content %}
     </main>
@@ -111,11 +184,28 @@
                 <div class="footer-title">
                     <h6>Contact Us</h6>
                 </div>
+                <div class="footer-contact">
+                    <p>
+                       <i class="fa fa-envelope"></i>Email
+                       <a href="mailto:shinhosuck1973@gamil.com">shinhosuck1973@gamil.com</a> 
+                    </p>
+                    <p>
+                        LinkedIn
+                        <a class="linkedIn-link" href="https://www.linkedin.com/in/eric-anderson-a6b906214/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </p>
+                </div>
             </div>
 
             <div class="footer-content-wrapper">
                 <div class="footer-title">
                     <h6>Leave a Message</h6>
+                </div>
+                <div class="footer-form">
+                    <form class="form-content" action="{% url 'users:contact_us' %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="contact-submit" type="submit">Send Message</button>
+                    </form>
                 </div>
             </div>
 

@@ -17,3 +17,11 @@ class Profile(models.Model):
             new_img = (300, 300)
             img.thumbnail(new_img)
             img.save(self.image.path)
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    content = models.TextField()
+
+    def __str__(self):
+        return self.email

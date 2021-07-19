@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from users.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ContactUsForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -32,3 +32,14 @@ def profile(request):
     }
     return render(request, "users/profile.html", context)
 
+
+def contact_us_forms(request):
+    if request.method == "POST":
+        form = ContactUsForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        messages.success(request, f"Thank you very much for the message. I will get back to you as soon as possible.")
+        return redirect("blog:home")
+    else:
+         messages.warning(request, f"Message did not sent. Please try again!")
+    return redirect("blog:home")

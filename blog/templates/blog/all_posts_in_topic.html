@@ -1,23 +1,23 @@
 {% extends "blog/base.html" %}
 
 
- <title>
-{% block title %}
-    {{ user.username}}'s Posts
-{% endblock title %}
-</title>
+    <title>
+    {% block title %}
+        {{ topic.name }}
+    {% endblock title %}
+    </title>
 
 
 {% block content %}
     <div class="topic-post-row">
         <div class="topic-content-container">
             <div class="topic-header-container">
-                <h2 class="topic-header">My Posts</h2>
+                <h2 class="topic-header">{{ topic.name }}</h2>
             </div>
-            {% if not posts %}
-                <h4>Sorry, you do not have any post.</h4>
+            {% if not topic.post_set.all %}
+                <h4>Sorry, this forum is empty.</h4>
             {% else %}
-                {% for post in posts %}
+                {% for post in topic.post_set.all %}
                     <div class="topic-post-col">
                         <img class="topic-post-img" src="{{ post.post_image.url}}" alt="post image">
                         <div class="topic-post-text-container">
@@ -66,6 +66,6 @@
                 {% endfor %}
             </div>
         </div>
-
+        
     </div>
 {% endblock content %}

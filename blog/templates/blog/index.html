@@ -34,7 +34,7 @@
                     {% endif %}
                 </h6>
                 <p class="topic-description">{{ topic.description|truncatechars:120 }}</p>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <a href="{% url 'blog:posts-in-topic' topic.pk %}" class="learn-more-btn">See Posts</a>
             </div>
             {% endfor %}
         </div>

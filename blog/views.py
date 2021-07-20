@@ -31,12 +31,8 @@ def create_post(request):
 
 
 def index(request):
-    posts = []
     topics = Topic.objects.all()
-    # for topic in topics:
-    #     posts += topic.post_set.all()[0:4]
     context = {
-        # "posts": posts,
         "topics": topics
     }
     return render(request, "blog/index.html", context)
@@ -58,18 +54,23 @@ def post_like(request, pk):
     return redirect("blog:post-detail", pk=pk)
 
 
-def post_topic(request, pk):
+def all_posts_in_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
-    return render(request, "blog/category.html", {"topic": topic})
+    all_posts = Post.objects.all()[0:5]
+    context = {
+        "topic": topic,
+        "all_posts": all_posts,
+    }
+    return render(request, "blog/all_posts_in_topic.html", context)
 
 
 def my_posts(request, pk):
-    topics = Topic.objects.all()
+    all_posts = Post.objects.all()[0:5]
     user = get_object_or_404(User, pk=pk)
     posts = user.post_set.all()
     context = {
         "posts": posts,
-        "topics": topics
+        "all_posts": all_posts
     }
     return render(request, "blog/my_posts.html", context)
 

@@ -5,7 +5,7 @@ from blog.views import (
                         post_detail,
                         post_like,
                         create_post,
-                        post_topic,
+                        all_posts_in_topic,
                         my_posts,
                         update_post,
                     )
@@ -18,7 +18,7 @@ urlpatterns = [
     path("new/post/", create_post, name="create-post"),
     path("post/<int:pk>/detail/", post_detail, name="post-detail"),
     path("post/<int:pk>/like/", post_like, name="post-like"),
-    path("topic/<int:pk>/", post_topic, name="post-topic"),
-    path("user/<int:pk>/posts/", my_posts, name="my_posts"),
+    path("topic/<int:pk>/posts", all_posts_in_topic, name="posts-in-topic"),
+    path("user/<int:pk>/posts/", my_posts, name="my-posts"),
     path("post/<int:pk>/update", update_post, name="update-post")
 ]

@@ -64,6 +64,7 @@ def all_posts_in_topic(request, pk):
     return render(request, "blog/all_posts_in_topic.html", context)
 
 
+@login_required
 def my_posts(request, pk):
     all_posts = Post.objects.all()[0:5]
     user = get_object_or_404(User, pk=pk)

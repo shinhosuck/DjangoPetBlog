@@ -36,7 +36,7 @@
                                     <span class="topic-likes-count">{{ post.likes.count}}</span>
                                 </p>
                             </div>
-                            <p class="topic-content">{{ post.content|truncatechars:86}}</p>
+                            <p class="topic-content">{{ post.content|truncatechars:75}}</p>
                             <a class="topic-read-more" href="{% url 'blog:post-detail' post.pk %}">Read More</a>
                         </div>
                     </div>

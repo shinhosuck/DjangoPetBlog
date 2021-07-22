@@ -21,8 +21,11 @@
                 <div class="my-posts-img-container">
                     <img src="{{ post.post_image.url }}" alt="">
                 </div>
-
                 <div class="my-posts-content">
+                    <a class="my-posts-topic-link" href="{% url 'blog:posts-in-topic' post.topic.pk%}">
+                        {{ post.topic }}
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
                     <p>
                         <i class="fas fa-calendar"></i>
                         <span>{{ post.date_posted|date:"N, d, Y"|truncatechars:14}}</span>

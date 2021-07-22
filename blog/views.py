@@ -37,9 +37,15 @@ def index(request):
     }
     return render(request, "blog/index.html", context)
 
+
 def post_detail(request, pk):
+    all_posts = Post.objects.all()[0:5]
     post = Post.objects.get(pk=pk)
-    return render(request, "blog/post_detail.html", {"post": post})
+    context = {
+        "all_posts": all_posts,
+        "post": post
+    }
+    return render(request, "blog/post_detail.html", context)
 
 
 @login_required

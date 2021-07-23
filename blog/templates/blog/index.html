@@ -1,7 +1,6 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
-
     <title>
     {% block title %}
         PawPal Home
@@ -10,6 +9,9 @@
 
 
 {% block content %}
+
+
+
     <div class="topics-container">
 
         <div class="topics-header-title">
@@ -23,12 +25,12 @@
                 <h6 class="topic-title">{{ topic }}
                     {% if topic.post_set.count > 1 %}
                         <span>
-                            <i class="fa fa-file-text-o"></i>
+                            <i class="fa fa-file-alt"></i>
                             {{ topic.post_set.count }}
                         </span>
                     {% else %}
                         <span>
-                            <i class="fa fa-file-text-o"></i>
+                            <i class="fa fa-file-alt"></i>
                             {{ topic.post_set.count }}
                         </span>
                     {% endif %}

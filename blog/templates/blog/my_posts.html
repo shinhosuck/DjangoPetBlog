@@ -9,14 +9,44 @@
 
 
 {% block content %}
-    <div class="my-posts-row">
+    <div class="post-detail-row">
 
-        <div class="my-posts-wrapper">
-            <div class="my-posts-header-title">
-                <h2>My Posts</h2>
+        <div class="post-detail-wrapper">
+            <div class="post-detail-header-title">
+                <h2>My posts</h2>
             </div>
 
             {% for post in posts %}
+            <div class="post-detail-content-wrapper">
+                <div class="post-detail-img-container">
+                    <img src="{{ post.post_image.url }}" alt="">
+                </div>
+                <div class="post-detail-content">
+                    <div class="post-detail-topic-link">
+                        <a href="{% url 'blog:posts-in-topic' post.topic.pk%}">
+                            {{ post.topic }}
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <h6 class="post-detail-title">{{ post.title }}</h6>
+                    <div class="post-detail-text-wrapper">
+                        <p class="post-detail-date">
+                            <i class="fas fa-calendar post-detail-calendar"></i>
+                            <span>{{ post.date_posted|date:"N, d, Y"|truncatechars:14}}</span>
+                        </p>
+                        <a class="post-detail-date-thumbs" href="{% url 'blog:post-like' post.pk %}">
+                            <i class="fas fa-thumbs-up post-detail-thumbs-up"></i>
+                            <span class="topic-likes-count">{{ post.likes.count}}</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="post-detail-text">{{ post.content }}</p>
+            </div>
+
+
+
+
+            {% comment %}
             <div class="my-posts-content-wrapper">
                 <div class="my-posts-img-container">
                     <img src="{{ post.post_image.url }}" alt="">
@@ -39,6 +69,7 @@
                 </div>
                 <p class="my-posts-text">{{ post.content }}</p>
             </div>
+            {% endcomment %}
             {% endfor %}
            
         </div>

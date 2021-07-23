@@ -11,7 +11,6 @@ html {
 body {
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
-    /* background: rgb(240, 240, 240); */
     background: rgb(230, 230, 230);
 }
 
@@ -36,8 +35,8 @@ LANDING_PAGE.HTML
 =================*/
 
 .landing-page-wrapper {
-    background: linear-gradient(rgba(0, 0, 0, 0.8),
-    rgba(0, 43, 59, 0.1)), url("images/lp.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/lp.jpg");
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
@@ -112,13 +111,20 @@ LANDING_PAGE.HTML
     padding: 0;
 }
 
-.landing-page-nav-item > a {
+.landing-page-nav-item > a, 
+.landing-page-nav-item > p {
     display: inline-block;
     padding: 1.5rem 1rem;
     text-decoration: none;
     letter-spacing: 0.06rem;
     color: rgb(255, 255, 255);
     font-weight: 400;
+}
+
+.landing-page-nav-item > p {
+    margin-bottom: 0;
+    color: rgb(0, 132, 255);
+    font-size: 1.2rem;
 }
 
 .landing-page-text {
@@ -155,14 +161,15 @@ LANDING_PAGE.HTML
 
 .landing-page-button > a {
     display: inline-block;
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 2rem;
     margin-top: 0.8rem;
-    background: rgb(226, 113, 0);
+    background: rgb(255, 69, 0);
     color: white;
     letter-spacing: 0.06rem;
-    border-radius: 8px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 @media screen and (max-width: 925px) {
@@ -237,12 +244,6 @@ LANDING_PAGE.HTML
         transform: translate(-50%, -50%);
     }
 
-
-    .landing-page-title,
-    .landing-page-paragraph,
-    .landing-page-button {
-        text-align: start;
-    }
     .landing-page-button > a  {
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -796,7 +797,7 @@ INDEX.HTML
     padding: 0.7rem 1rem;
     letter-spacing: 0.05rem;
     text-align: center;
-    background: rgb(236, 75, 0);
+    background: rgb(255, 69, 0);
     color: rgb(255, 255, 255);
     border-radius: 30px;
     margin-top: 1rem;
@@ -1538,7 +1539,7 @@ POST_DETAIL.HTML
     border-radius: 20px;
     font-size: 0.95rem;
     padding: 0.4rem 1.5rem;
-    background: orangered;
+    background: rgb(255, 69, 0);
     cursor: pointer;
     margin-bottom: 0;
     letter-spacing: 0.05rem;
@@ -1692,7 +1693,7 @@ MY_POSTS.HTML
 
 /* left cards container */
 
-.my-posts-row {
+.my-post-row {
     width: 1229px;
     display: flex;
     flex-wrap: wrap;
@@ -1701,7 +1702,7 @@ MY_POSTS.HTML
     margin: 0 auto;
 }
 
-.my-posts-wrapper {
+.my-post-wrapper {
     flex: 0 0 75%;
     width: 75%;
     margin: 2rem 0;
@@ -1711,13 +1712,13 @@ MY_POSTS.HTML
     justify-content: flex-start;
 }
 
-.my-posts-header-title {
+.my-post-header-title {
     flex: 0 0 100%;
     width: 100%;
     letter-spacing: 0.05rem;
 }
 
-.my-posts-header-title > h2 {
+.my-post-header-title > h2 {
     color: rgb(255, 255, 255);
     background: rgb(24, 84, 119);
     padding: 0.8rem 1.5rem;
@@ -1725,31 +1726,32 @@ MY_POSTS.HTML
     box-shadow: 1px 1px 6px rgb(34, 50, 56);
 }
 
-.my-posts-content-wrapper {
+.my-post-content-wrapper {
     width: 100%;
     flex: 0 0 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem;
-    margin: 1.5rem 0;
+    /* margin: 1.5rem 0; */
+    margin-top: 2rem;
     border-radius: 8px;
     background: rgb(167, 225, 245);
     box-shadow: 2px 2px 6px rgb(129, 149, 156);
 }
 
-.my-posts-img-container {
+.my-post-img-container {
     width: 30%;
     flex: 0 0 30%;
 }
 
-.my-posts-img-container > img {
+.my-post-img-container > img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-.my-posts-content {
+.my-post-content {
     flex: 0 0 70%;
     width: 70%;
     display: flex;
@@ -1758,74 +1760,98 @@ MY_POSTS.HTML
 
 }
 
-.my-posts-topic-link {
-    margin-bottom: 1rem;
+.my-post-topic-link {
     flex: 0 0 100%;
     width: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.my-post-topic-link > a {
     color: rgb(0, 49, 184);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.02rem;
     text-transform: uppercase;
 }
 
-.my-posts-content > p {
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
+.my-post-topic-link > a > i {
+    margin-left: 0.5rem;
 }
 
-.my-posts-content > p > span {
-    padding-top: 0.3rem;
-    padding-left: 0.3rem;
-    color: rgb(100, 100, 100);
-    letter-spacing: 0.02rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.my-posts-content > p > i {
-    color: rgb(0, 49, 141);
-    font-size: 1.1rem;
-}
-
-.my-posts-thumbs-up {
-    margin-left: 1rem
-}
-
-.my-posts-content > h6 {
+.my-post-title {
     flex: 0 0 100%;
     width: 100%;
     color: rgb(0, 0, 0);
     letter-spacing: 0.05rem;
-    margin-top: 0.8rem;
     text-transform: capitalize;
     font-size: 1.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.my-posts-update {
-    display: inline-block;
+.my-post-text-wrapper {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+}
+
+.my-post-author,
+.my-post-date,
+.my-post-date-thumbs {
+    display: flex;
+    align-items: center;
+}
+
+.my-post-author,
+.my-post-date {
+    margin-bottom: 0;
+}
+
+.my-post-date-thumbs {
+    padding-left: 2rem;
+}
+
+.my-post-author > span,
+.my-post-date > span,
+.my-post-date-thumbs > span{
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+    color: rgb(100, 100, 100);
+    letter-spacing: 0.02rem;
+    font-size: 1rem
+}
+
+.my-post-date > i,
+.my-post-date-thumbs > i {
+    color: rgb(0, 49, 141);
+    font-size: 1.1rem;
+}
+
+.my-post-reply {
+    flex: 0 0 100%;
+    width: 100%;
     margin-top: 1rem;
+}
+
+.my-post-reply > a {
+    display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 15px;
+    border-radius: 20px;
     font-size: 0.95rem;
-    padding: 0.2rem 0.6rem;
-    /* font-weight: 600; */
-    background: orangered;
-    
+    padding: 0.4rem 1.5rem;
+    background: rgb(255, 69, 0);
+    cursor: pointer;
+    margin-bottom: 0;
+    letter-spacing: 0.05rem;
 }
 
-.my-posts-update:hover {
+.my-post-update:hover {
     color: rgb(255, 255, 255);
 }
 
-.my-posts-text {
+.my-post-text {
     flex: 0 0 100;
     width: 100%;
     margin-top: 1rem;
@@ -1834,7 +1860,471 @@ MY_POSTS.HTML
     letter-spacing: 0.05rem;
     color: rgb(51, 51, 51);
 }
+
+@media screen and (max-width:1229px) {
+
+    .my-post-row {
+        width: 90%;
+    }
+
+    .my-post-wrapper {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .my-post-img-container {
+        flex: 0 0 35%;
+        flex: 0 0 35%;
+    }
+
+    .my-post-content {
+        flex: 0 0 65%;
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 785px) {
+
+    .my-post-img-container {
+        flex: 0 0 40%;
+        flex: 0 0 40%;
+    }
+
+    .my-post-content {
+        flex: 0 0 60%;
+        width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 705px) {
+
+    /* .my-post-wrapper {
+        margin-bottom: 0;
+    } */
+
+    .my-post-img-container {
+        flex: 0 0 100%;
+        flex: 0 0 100%;
+    }
+
+    .my-post-content {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .my-post-content {
+        padding-left: 0;
+    }
+
+    .my-post-topic-link {
+        margin-top: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .my-post-content-wrapper {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .post-detail-topic-link {
+        text-align: center;
+    }
+
+    .my-post-title {
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .my-post-author,
+    .my-post-date,
+    .my-post-date-thumbs {
+       flex: 0 0 100%;
+       width: 100%;
+       justify-content: center;
+       padding-left: 0;
+    }
+
+    .my-post-date-thumbs {
+        order: 1;
+        padding-right: 3.5rem;
+    }
+
+    .post-detail-author {
+        order: 2;
+        margin: 0.5rem 0;
+    }
+
+    .my-post-date {
+        order: 3;
+        padding-left: 2rem;
+    }
+
+    .my-post-reply {
+        order: 4;
+        text-align: center;
+    }
+
+    .my-post-reply > a {
+        width: 100%;
+        padding: 0.5rem 2rem;
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+
+    .my-post-text {
+        text-align: center
+    }
+}
+
 /* end of left side cards container */
+
+/* right side container */
+
+.my-post-right-side-container {
+    flex: 0 0 22%;
+    width: 22%;
+    margin: 2rem 0;
+    background:rgb(83, 167, 206);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.my-post-latest-post-title-header {
+    color: rgb(253, 253, 253);
+    text-transform: capitalize;
+    letter-spacing: 0.03rem;
+    padding: 0.8rem 1rem;
+    background: rgb(24, 84, 119);
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px rgb(60, 87, 97);
+    text-align: center;
+}
+
+.my-post-latest-posts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.my-post-latest-posts {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgb(167, 225, 245);
+    box-shadow: 1px 1px 6px rgb(60, 87, 97);
+    text-align: center;
+}
+
+.my-post-latest-posts > p {
+    margin-bottom: 0;
+    margin-top: 0.7rem;
+}
+
+.my-post-latest-post-topic-link {
+    color: rgb(0, 49, 184);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+@media (hover) {
+    .my-post-latest-post-topic-link:hover {
+        color: rgb(0, 119, 255);
+    }
+}
+
+.my-post-latest-post-title {
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+    margin-top: 0.7rem;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.my-post-latest-post-date {
+    color: rgb(100, 100, 100);
+    font-size: 0.9rem;
+    margin-top: 0.7rem;
+}
+
+.my-post-latest-post-date > i {
+    font-size: 1rem;
+    margin-right: 0.2rem;
+    color: rgb(0, 68, 146);
+}
+
+.my-post-latest-post-content {
+    color: rgb(41, 41, 41);
+}
+
+.my-post-latest-post-detail {
+    display: block;
+    margin-top: 0.7rem;
+    color: rgb(255, 255, 255);
+    background: rgb(255, 69, 0);
+    padding: 0.6rem 1rem;
+    letter-spacing: 0.03rem;
+    text-align: center;
+    border-radius: 20px;
+}
+
+@media (hover) {
+    .my-post-latest-post-detail:hover {
+        background:rgb(255, 102, 0);
+        transition: background 0.25s linear;
+        color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 1229px) {
+    
+    .my-post-right-side-container {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 1.5rem;
+        margin-top: 0;
+    }
+
+    .my-post-latest-post-title-header {
+        margin: 0 0.5rem;
+        text-align: start;
+        font-size: 2rem;
+        padding: 0.8rem 1rem;
+        letter-spacing: 0.05rem;
+    }
+
+    .my-post-latest-post-wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .my-post-latest-posts {
+        flex: 0 0 31.8%;
+        width: 31.8%;
+        margin: 1.5rem 0.5rem 0 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1211px) {
+
+     .my-post-latest-posts {
+        flex: 0 0 31.6%;
+        width: 31.6%;
+    }
+
+    .my-post-topic-content {
+        height: 73px;
+    }
+}
+
+@media screen and (max-width: 1077px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 31.5%;
+        width: 31.5%;
+    }
+
+    .my-post-latest-post-content {
+        height: 85px;
+    }
+
+    .my-post-latest-post-detail {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 1022px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 31.4%;
+        width: 31.4%;
+    }
+
+    .my-post-latest-post-content {
+        height: 90px;
+    }
+}
+
+@media screen and (max-width: 996px) {
+
+    .my-post-latest-post-content {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 971px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 31.3%;
+        width: 31.3%;
+    }
+}
+
+@media screen and (max-width: 926px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 31.2%;
+        width: 31.2%;
+    }
+}
+
+@media screen and (max-width: 885px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 47.8%;
+        width: 47.8%;
+    }
+
+    .my-post-latest-post-content {
+        height: auto;
+    }
+
+    .my-post-latest-post-detail {
+        margin-top: 0.7rem;
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.7%;
+        width: 47.7%;
+    }
+}
+
+@media screen and (max-width: 825px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.6%;
+        width: 47.6%;
+    }
+}
+
+@media screen and (max-width: 793px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.5%;
+        width: 47.5%;
+    }
+}
+
+@media screen and (max-width: 763px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.4%;
+        width: 47.4%;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.3%;
+        width: 47.3%;
+    }
+}
+
+@media screen and (max-width: 711px) {
+    
+    .my-post-latest-posts {
+        flex: 0 0 47.2%;
+        width: 47.2%;
+    }
+}
+@media screen and (max-width: 687px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 47.1%;
+        width: 47.1%;
+    }
+}
+
+@media screen and (max-width: 681px) {
+
+    .my-post-latest-post-content {
+        height: 100px;
+    }
+
+    .my-post-latest-post-detail {
+        margin-top: 0rem;
+    }
+}
+
+@media screen and (max-width: 666px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 47%;
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 46.9%;
+        width: 46.9%;
+    }
+}
+
+@media screen and (max-width: 626px) {
+
+    .my-post-latest-posts {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .my-post-latest-post-content {
+        height: auto;
+    }
+
+    .my-post-latest-post-detail {
+        margin-top: 0.7rem;
+    }
+
+    .my-post-latest-post-title-header {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .my-post-latest-post-detail {
+        width: 40%;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .my-post-latest-post-detail {
+        width: 100%;
+    }
+}
+
+/* end of right side container */
+
+
+
 
 
 /*=============

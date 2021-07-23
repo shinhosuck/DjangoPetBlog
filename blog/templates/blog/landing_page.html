@@ -38,12 +38,18 @@
                 <li class="landing-page-nav-item">
                     <a href="{% url 'blog:home' %}">Explore</a>
                 </li>
-                <li class="landing-page-nav-item">
-                    <a href="{% url 'users:register' %}">Register</a>
-                </li>
-                <li class="landing-page-nav-item">
-                    <a href="{% url 'users:login' %}">Sign In</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="landing-page-nav-item">
+                        <p>Hello! {{ user.username}}</p>
+                    </li>
+                {% else %}
+                    <li class="landing-page-nav-item">
+                        <a href="{% url 'users:register' %}">Register</a>
+                    </li>
+                    <li class="landing-page-nav-item">
+                        <a href="{% url 'users:login' %}">Sign In</a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
         <div class="landing-page-text">

@@ -9,87 +9,61 @@
 
 
 {% block content %}
-    <div class="post-detail-row">
+    <div class="my-post-row">
 
-        <div class="post-detail-wrapper">
-            <div class="post-detail-header-title">
+        <div class="my-post-wrapper">
+            <div class="my-post-header-title">
                 <h2>My posts</h2>
             </div>
 
             {% for post in posts %}
-            <div class="post-detail-content-wrapper">
-                <div class="post-detail-img-container">
-                    <img src="{{ post.post_image.url }}" alt="">
-                </div>
-                <div class="post-detail-content">
-                    <div class="post-detail-topic-link">
-                        <a href="{% url 'blog:posts-in-topic' post.topic.pk%}">
-                            {{ post.topic }}
-                            <i class="fa fa-chevron-right"></i>
-                        </a>
+                <div class="my-post-content-wrapper">
+                    <div class="my-post-img-container">
+                        <img src="{{ post.post_image.url }}" alt="">
                     </div>
-                    <h6 class="post-detail-title">{{ post.title }}</h6>
-                    <div class="post-detail-text-wrapper">
-                        <p class="post-detail-date">
-                            <i class="fas fa-calendar post-detail-calendar"></i>
-                            <span>{{ post.date_posted|date:"N, d, Y"|truncatechars:14}}</span>
-                        </p>
-                        <a class="post-detail-date-thumbs" href="{% url 'blog:post-like' post.pk %}">
-                            <i class="fas fa-thumbs-up post-detail-thumbs-up"></i>
-                            <span class="topic-likes-count">{{ post.likes.count}}</span>
-                        </a>
+                    <div class="my-post-content">
+                        <div class="my-post-topic-link">
+                            <a href="{% url 'blog:posts-in-topic' post.topic.pk%}">
+                                {{ post.topic }}
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <h6 class="my-post-title">{{ post.title }}</h6>
+                        <div class="my-post-text-wrapper">
+                            <p class="my-post-date">
+                                <i class="fas fa-calendar my-post-calendar"></i>
+                                <span>{{ post.date_posted|date:"N, d, Y"|truncatechars:14}}</span>
+                            </p>
+                            <a class="my-post-date-thumbs" href="{% url 'blog:post-like' post.pk %}">
+                                <i class="fas fa-thumbs-up my-post-thumbs-up"></i>
+                                <span class="my-post-likes-count">{{ post.likes.count}}</span>
+                            </a>
+                            <div class="my-post-reply">
+                                <a href="{% url 'blog:update-post' post.pk %}" >Update</a>
+                            </div>
+                        </div>
                     </div>
+                    <p class="my-post-text">{{ post.content }}</p>
                 </div>
-                <p class="post-detail-text">{{ post.content }}</p>
-            </div>
-
-
-
-
-            {% comment %}
-            <div class="my-posts-content-wrapper">
-                <div class="my-posts-img-container">
-                    <img src="{{ post.post_image.url }}" alt="">
-                </div>
-                <div class="my-posts-content">
-                    <a class="my-posts-topic-link" href="{% url 'blog:posts-in-topic' post.topic.pk%}">
-                        {{ post.topic }}
-                        <i class="fa fa-chevron-right"></i>
-                    </a>
-                    <p>
-                        <i class="fas fa-calendar"></i>
-                        <span>{{ post.date_posted|date:"N, d, Y"|truncatechars:14}}</span>
-                    </p>
-                    <p>
-                        <i class="fas fa-thumbs-up my-posts-thumbs-up"></i>
-                        <span class="topic-likes-count">{{ post.likes.count}}</span>
-                    </p>
-                    <h6>{{ post.title }}</h6>
-                    <a class="my-posts-update" href="{% url 'blog:update-post' post.pk %}">Update</a>
-                </div>
-                <p class="my-posts-text">{{ post.content }}</p>
-            </div>
-            {% endcomment %}
             {% endfor %}
-           
         </div>
 
-        <div class="post-right-side-container">
-            <h5 class="latest-post-title-header">Latest Posts</h5>
-            <div class="latest-post-wrapper">
+        <div class="my-post-right-side-container">
+            <h5 class="my-post-latest-post-title-header">Latest Posts</h5>
+            <div class="my-post-latest-post-wrapper">
                 {% for post in all_posts %}
-                <div class="latest-posts">
-                    <a class="latest-post-topic-link" href="{% url 'blog:posts-in-topic' post.topic.pk%}">
+                <div class="my-post-latest-posts">
+                    <a class="my-post-latest-post-topic-link" href="{% url 'blog:posts-in-topic' post.topic.pk%}">
                         {{ post.topic }}
                         <i class="fa fa-chevron-right"></i>
                     </a>
-                    <p class="latest-post-date">
-                        <i class="fas fa-calendar topic-calendar-icon"></i>
+                    <p class="my-post-latest-post-date">
+                        <i class="fas fa-calendar my-post-topic-calendar-icon"></i>
                         {{ post.date_posted|date:"N, d, Y"}}
                     </p>
-                    <h5 class="latest-post-title">{{ post.title }}</h5>
-                    <p class="latest-post-content">{{ post.content|truncatechars:100}}</p>
-                    <a href="{% url 'blog:post-detail' post.pk %}" class="latest-post-detail">
+                    <h5 class="my-post-latest-post-title">{{ post.title }}</h5>
+                    <p class="my-post-latest-post-content">{{ post.content|truncatechars:100}}</p>
+                    <a class="my-post-latest-post-detail" href="{% url 'blog:post-detail' post.pk %}">
                         Read post
                     </a>
                 </div>

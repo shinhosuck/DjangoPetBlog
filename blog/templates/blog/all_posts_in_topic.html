@@ -15,7 +15,10 @@
                 <h2 class="topic-header">{{ topic.name }}</h2>
             </div>
             {% if not topic.post_set.all %}
-                <h4>Sorry, this forum is empty.</h4>
+                <script type="text/javascript">
+                    alert("Sorry, this forum is empty!")
+                    location.href = "{% url 'blog:home' %}"
+                </script>
             {% else %}
                 {% for post in topic.post_set.all %}
                     <div class="topic-post-col">

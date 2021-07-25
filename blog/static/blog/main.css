@@ -2735,85 +2735,121 @@ end of my_posts
 }
 /* END REGISTER.HTML */
 
-/* SIGN_IN.HTML */
+/*
+==========
+LOGIN.HTML
+==========*/
+
 .login-bg-img{
     min-height: 100vh;
-    background: url("images/background.jpg");
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .login-row{
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
-    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
-    min-height: 100vh;
+    width: 400px;
+    margin: 0 auto;
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
 }
+
 .login-message-container {
     flex: 0 0 100%;
+    width: 100%;
     text-align: center;
     margin-bottom: 0 !important;
 }
+
 .login-message-text {
     color: rgb(219, 219, 219);
     font-size: 1.3rem;
     margin-bottom: 0 !important;
     padding: 0.5rem 0
 }
-.login-col{
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
-    rgba(70, 32, 0, 0.8));
-    padding: 1rem 1.5rem;
 
-    width: 400px;
+.login-col{
+    background: rgba(0, 21, 44, 0.8);
+    padding: 1rem 1.5rem;
+    flex: 0 0 100%;
+    width: 100%;
     color: rgb(255, 255, 255);
     border-radius: 20px;
 }
+
+.login-col > h3 {
+    letter-spacing: 0.05rem;
+}
+
+.login-form-btns {
+    margin-top: 1.3rem;
+}
+
 .sign-in-btn {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(240, 156, 0);
-    border: 1px solid  rgb(240, 156, 0);
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    background: rgb(255, 38, 0);
     color: rgb(255, 255, 255);
-    margin-top: 0.8rem;
     outline: none !important;
-    transition: all 0.1s ease-in-out;
+    border: none;
+    letter-spacing: 0.05rem;
+    transition: background 0.25s linear;
 }
-.sign-in-btn:hover {
-    background: rgb(141, 92, 0);
-    border: 1px solid  rgb(141, 92, 0);
+
+@media (hover) {
+    .sign-in-btn:hover {
+        background: rgb(255, 94, 0);
+    }
 }
+
 .sign-in-btn-cancel {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(141, 141, 141);
-    border: 1px solid  rgb(141, 141, 141);
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    margin-left: 0.3rem;
+    border-radius: 8px;
+    background: rgb(70, 70, 70);
     color: rgb(255, 255, 255);
-    margin-top: 0.5rem;
+    letter-spacing: 0.05rem;
     text-decoration: none;
     outline: none !important;
-    transition: all 0.1s ease-in-out;
+    transition: background 0.25s linear;
 }
-.sign-in-btn-cancel:hover {
-    background: rgb(49, 49, 49);
-    border: 1px solid  rgb(49, 49, 49);
-    color: rgb(255, 255, 255);
+
+@media (hover) {
+    .sign-in-btn-cancel:hover {
+        background: rgb(100, 100, 100);
+        color: rgb(255, 255, 255);
+    }
 }
+
 .login-small {
     display: block;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0;
 }
+
 .login-a {
-    margin-left: 0.5rem !important;
-    text-decoration: none !important;
-    color: rgb(255, 153, 0) !important;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color: rgb(0, 204, 255);
+    transition: color 0.15s linear
 }
+
+@media (hover) {
+    .login-a:hover {
+        color: rgb(0, 255, 191);
+    }
+}
+
 @media screen and (max-width: 400px) {
     .login-col{
         padding: 0.5rem;

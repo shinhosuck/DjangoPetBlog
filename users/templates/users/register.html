@@ -56,7 +56,7 @@
             <h2>Sign up</h2>
             <form action="#" method="Post">
                 {% csrf_token %}
-                {{ form|crispy }}
+                {{ register_form|crispy }}
                 <button class="register-btn">Submit</button>
                 <a class="register-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
             </form>

@@ -361,6 +361,83 @@ BASE.HTML
     letter-spacing: 0.06rem;
 }
 
+.link > .user-account {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+.link > .user-account > 
+.user-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 0.3rem;
+    background: rgb(0, 119, 255);
+}
+
+.link > .user-account > 
+.user-profile-img > img {
+    width: 100%;
+    height: auto;
+   
+}
+
+.link > .user-account > 
+.user-username {
+    margin-bottom: 0;
+    padding-left: 0.3rem;
+    cursor: pointer;
+}
+
+.link > .user-account > 
+.user-username > i {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+#up-arrow {
+    display: none;
+}
+
+.user-dropdown-accounts {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    left: 15px;
+    width: 145px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border-radius: 8px;
+    max-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(0, 55, 87, 0.5);
+    transition: max-height 0.2s ease-in-out;
+
+}
+
+.show-dropdown-accounts {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in-out;
+}
+
+.user-dropdown-accounts > a {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    color: white;
+    
+}
+
+#sign-out {
+    padding-bottom: 1rem;
+}
+
 @media (hover) {
     .link a:hover {
         color: rgb(200, 200, 200)
@@ -2661,76 +2738,117 @@ MY_POSTS.HTML
 end of my_posts
 ===============*/
 
-/* REGISTER.HTML */
+/*===========
+REGISTER.HTML
+=============*/
+
 .register-bg-img{
     min-height: 100vh;
-    background: url("images/background.jpg");
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+     rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding: 1rem 0; 
 }
 .register-form-row {
-    background: linear-gradient(to bottom, rgba(70, 32, 0.8),
-    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
     min-height: 100vh;
+    width: 400px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: center;
+    align-items: center;
 }
 .register-form-col {
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
-    rgba(70, 32, 0, 0.8));
+    width: 100%;
+    flex: 0 0 100%;
+    background: rgba(0, 21, 44, 0.8);
     color: rgb(255, 255, 255);
     border-radius: 20px;
-    padding: 1rem 1.5rem;
-    width: 400px;
+    padding: 1.5rem;
 }
+
+.register-form-col > h3 {
+    letter-spacing: 0.05rem;
+}
+
+.register-form-btns {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.register-btn {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    background: rgb(255, 38, 0);
+    color: rgb(255, 255, 255);
+    outline: none !important;
+    border: none;
+    letter-spacing: 0.05rem;
+    transition: background 0.25s linear;
+}
+
+@media (hover) {
+    .register-btn:hover {
+        background: rgb(255, 94, 0);
+    }
+}
+
+.register-btn-cancel {
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    margin-left: 0.3rem;
+    border-radius: 8px;
+    background: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: background 0.25s linear;
+}
+
+@media (hover) {
+    .register-btn-cancel:hover {
+        background: rgb(100, 100, 100);
+        color: rgb(255, 255, 255);
+    }
+}
+
 .register-form-small {
     display: block;
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-}
-.register-btn {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(240, 156, 0);
-    border: 1px solid  rgb(240, 156, 0);
-    color: rgb(255, 255, 255);
     margin-top: 0.8rem;
-    outline: none !important;
-    transition: all 0.1s ease-in-out;
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0;
 }
-.register-btn:hover {
-    background: rgb(141, 92, 0);
-    border: 1px solid  rgb(141, 92, 0);
-}
-.register-btn-cancel {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(141, 141, 141);
-    border: 1px solid  rgb(141, 141, 141);
-    color: rgb(255, 255, 255);
-    margin-top: 0.5rem;
-    text-decoration: none;
-    outline: none !important;
-    transition: all 0.1s ease-in-out;
-}
-.register-btn-cancel:hover {
-    background: rgb(49, 49, 49);
-    border: 1px solid  rgb(49, 49, 49);
-    color: rgb(255, 255, 255);
-}
-.register-form-small a {
-    text-decoration: none;
-    color: rgb(255, 153, 0);
+
+.register-form-small > span >
+.register-a {
     margin-left: 0.5rem;
+    text-decoration: none;
+    color: rgb(0, 204, 255);
+    transition: color 0.15s linear;
 }
+
+@media (hover) {
+    .register-form-small > span >
+    .register-a:hover {
+        color: rgb(0, 255, 191);
+    }
+}
+
 @media screen and (max-width: 410px) {
+
+    .register-form-row {
+        width: 90%;
+    }
+
     .register-form-col {
         width: 100%;
-        border-radius: 0;
-        padding: 0.5rem;
     }
 }
 /* END REGISTER.HTML */
@@ -2776,7 +2894,7 @@ LOGIN.HTML
 
 .login-col{
     background: rgba(0, 21, 44, 0.8);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
     flex: 0 0 100%;
     width: 100%;
     color: rgb(255, 255, 255);
@@ -2850,14 +2968,22 @@ LOGIN.HTML
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 405px) {
+
+    .login-row {
+        width: 90%;
+        flex: 0 0 90%;
+    }
+
     .login-col{
-        padding: 0.5rem;
+        flex: 0 0 100%;
         width: 100%;
-        border-radius: 0;
     }
 }
-/* END SIGN_IN.HTML */
+
+/*============
+END LOGIN.HTML
+==============*/
 
 /* PROFILE.HTML */
 .profile-bg-img{

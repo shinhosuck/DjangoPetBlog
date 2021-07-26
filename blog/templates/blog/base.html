@@ -127,14 +127,34 @@
                         <li class="link">
                             <a href="{% url 'blog:create-post' %}">New Post</a>
                         </li>
-                        <li class="link">
+                        {% comment %}
+                        <!-- <li class="link">
                             <a href="{% url 'users:profile' %}">Profile</a>
-                        </li>
+                        </li> -->
+                        {% endcomment %}
                         <li class="link">
                             <a id="search" href="#">Search</a>
                         </li>
-                        <li class="link">
+                        {% comment %}
+                        <!-- <li class="link">
                             <a href="{% url 'users:logout' %}">Sign Out</a>
+                        </li> -->
+                        {% endcomment %}
+
+                        <li class="link">
+                            <div class="user-account">
+                                <div class="user-profile-img">
+                                    <img src="{{ user.profile.image.url }}" alt="">
+                                </div>
+                                <p class="user-username">{{ user.username }}
+                                    <i id="down-arrow" class="fa fa-chevron-down"></i>
+                                    <i id="up-arrow" class="fa fa-chevron-up"></i>
+                                </p>
+                                <div class="user-dropdown-accounts">
+                                    <a href="{% url 'users:profile' %}">Profile</a>
+                                    <a id="sign-out" href="{% url 'users:logout' %}">Sign Out</a>
+                                </div>
+                            </div>
                         </li>
                         {% endwith %}
                     {% else %}
@@ -206,7 +226,7 @@
                 <div class="footer-contact">
                     <p>
                        <i class="fa fa-envelope"></i>Email
-                       <a href="mailto:shinhosuck1973@gamil.com">shinhosuck1973@gamil.com</a> 
+                       <a href="mailto:shinhosuck1973@gmail.com">shinhosuck1973@gmail.com</a> 
                     </p>
                     <p>
                         LinkedIn
@@ -282,6 +302,22 @@
             searchContainer.classList.remove("show-search-container")
             closeButton.style.opacity = "0"
 
+        })
+
+        const userUsername = document.querySelector(".user-username")
+        const userDropdownAccounts = document.querySelector(".user-dropdown-accounts")
+        const downArrow = document.querySelector("#down-arrow")
+        const upArrow = document.querySelector("#up-arrow")
+
+        userUsername.addEventListener("click", function(){
+            userDropdownAccounts.classList.toggle("show-dropdown-accounts")
+            if(userDropdownAccounts.classList.contains("show-dropdown-accounts")) {
+                downArrow.style.display = "none"
+                upArrow.style.display = "inline"
+            }else{
+                downArrow.style.display = "inline"
+                upArrow.style.display = "none"
+            }
         })
 
     </script>

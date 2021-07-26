@@ -85,9 +85,9 @@
             <form action="#" method="Post">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <div class="login-form-btns">
-                    <button class="sign-in-btn">Sign In</button>
-                    <a class="sign-in-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
+                <div class="register-form-btns">
+                    <button class="register-btn">Sign In</button>
+                    <a class="register-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
                 </div>
             </form>
             <p class="login-small">Need an account?

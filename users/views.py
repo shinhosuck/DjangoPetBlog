@@ -22,7 +22,12 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, "{}'s profile has been updated!".format(request.user))
-        return redirect("users:profile")
+            return redirect("users:profile")
+        else:
+            messages.success(request, """Your profile failed to update! Try agin.
+                Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.""")
+            return redirect("users:profile")
+
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

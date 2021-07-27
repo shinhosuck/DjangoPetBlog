@@ -1,49 +1,74 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 
+
+<title>
 {% block title %}
-    <title>{{ user.username }}'s Profile</title>
+    {{ user.username }}'s Profile
 {% endblock title %}
+</title>
+
 
 {% block navbar %}
 {% endblock navbar %}
 
 {% block content %}
 <style>
-    #div_id_username {
-        margin-top: 0.8rem;
-    }
-    #div_id_email {
-        margin-top: 0.8rem !important;
-    }
+
+    #div_id_username,
+    #div_id_email,
     #div_id_image {
-        margin-top: 0.8rem !important;
+        margin-top: 1rem;
     }
-    #div_id_image div {
-        font-size: 0.8rem;
+    
+    #div_id_image > div {
+        color: rgb(199, 199, 199) !important;
+        font-size: 0.95rem;
+        letter-spacing: 0.05rem;
+        line-height: 1.4;
+        border: 1px solid rgb(0, 42, 82);
+        padding: 0.5rem;
     }
+
+    #div_id_image > div > input {
+        margin-top: 0.5rem;
+    }
+
+    #div_id_image > div > a {
+        color: rgb(0, 110, 255) !important;
+    }
+
+    #div_id_username > label,
+    #div_id_email > label,
+    #div_id_image > label {
+        margin-bottom: 0.2rem;
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+        color: rgb(255, 255, 255) !important;
+    }
+
+    #div_id_username > div > input,
+    #div_id_email > div > input {
+        padding: 0.5rem 0.75rem;
+        background: rgb(191, 221, 226);
+        color: rgb(0, 0, 0) !important
+    }
+
     #div_id_image a {
         color: rgb(180, 180, 180);
         text-decoration: none;
     }
-    #error_1_id_username {
-        font-family: sans-serif;
-        color: rgb(255, 128, 128);
-        font-size: 0.8rem;
-    }
+
     #id_username {
         border: none;
         box-shadow: none;
         background: white;
     }
+
     #hint_id_username {
         display: none;
     }
-    #error_1_id_email {
-        font-size: 0.8rem;
-        font-family: sans-serif;
-        color: rgb(255, 128, 128)
-    }
+
     #id_email {
         border: none;
         box-shadow: none;
@@ -52,18 +77,15 @@
 </style>
 <div class="profile-bg-img">
     <div class="profile-row">
-        {% for message in messages %}
-            <div class="profile-message-container">
-                <p class="profile-message-text">{{ message }}</p>
-            </div>
-        {% endfor %}
         <div class="profile-col">
-            <h3>{{ user.username }}'s profile</h3>
+            <h3>My Profile Info</h3>
             <div class="profile-img-text">
-                <img class="profile-img" src="{{ user.profile.image.url }}" alt="profile image">
+                <div class="profile-img">
+                    <img src="{{ user.profile.image.url }}" alt="profile image">
+                </div>
                 <div class="small-container">
-                    <small class="user-username">User: {{ user.username }}</small>
-                    <small class="user-email">Email: {{ user.email }}</small>
+                    <p class="user-username">{{ user.username }}</p>
+                    <p class="user-email">{{ user.email }}</p>
                 </div>
             </div>
             <div>
@@ -71,8 +93,10 @@
                     {% csrf_token %}
                     {{ u_form|crispy }}
                     {{ p_form|crispy }}
-                    <button class="profile-update-btn">Update</button>
-                    <a class="profile-update-btn-cancel" type="button" href="{% url 'blog:home' %}">Cancel</a>
+                    <div class="profile-btns">
+                        <button class="profile-update-btn">Update</button>
+                        <a class="profile-update-btn-cancel" href="{% url 'blog:home' %}">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

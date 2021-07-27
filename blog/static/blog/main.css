@@ -274,7 +274,7 @@ BASE.HTML
 .bg-img {
     min-height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8),
-    rgba(0, 43, 59, 0.1)),url("images/bg.jpg");
+        rgba(0, 43, 59, 0.1)), url("images/bg.jpg");
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -372,17 +372,15 @@ BASE.HTML
 
 .link > .user-account > 
 .user-profile-img {
-    width: 35px;
+    width: 34px;
     height: 35px;
-    border-radius: 50%;
-    padding: 0.3rem;
-    background: rgb(0, 119, 255);
 }
 
 .link > .user-account > 
 .user-profile-img > img {
-    width: 100%;
-    height: auto;
+    width: 34px;
+    height: 35px;
+    border-radius: 50%;
    
 }
 
@@ -406,7 +404,7 @@ BASE.HTML
 .user-dropdown-accounts {
     position: absolute;
     z-index: 2;
-    top: 50px;
+    top: 45px;
     left: 15px;
     width: 145px;
     display: flex;
@@ -508,15 +506,14 @@ BASE.HTML
     .links {
        position: absolute;
        top: 66px;
-       left: 0;
-       height: 100vh;
+       min-height: 100vh;
        left: -100%;
        background: rgba(0, 0, 0, 0.6);
        flex-direction: column;
        align-items: flex-start;
-
        padding: 0;
        transition: left 0.25s linear;
+       overflow: hidden;
     }
 
     .show-mobile-nav-links {
@@ -534,12 +531,12 @@ BASE.HTML
 /* end of nav bar */
 
 /* footer */
+
 footer {
     background: rgb(11, 38, 54);
 }
 
 .footer-container {
-    /* width: 1229px; */
     width: 90%;
     margin: 0 auto;
     padding: 1rem 0;
@@ -2744,8 +2741,8 @@ REGISTER.HTML
 
 .register-bg-img{
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.9),
-     rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background:linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2985,107 +2982,171 @@ LOGIN.HTML
 END LOGIN.HTML
 ==============*/
 
-/* PROFILE.HTML */
+/*==========
+PROFILE.HTML
+============*/
+
 .profile-bg-img{
     min-height: 100vh;
-    background: url("images/background.jpg");
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 .profile-row {
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
-    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
     min-height: 100vh;
+    width: 400px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
     justify-content: center;
+    padding: 2rem 0;
 }
+
 .profile-message-container {
     flex: 0 0 100%;
     text-align: center;
     margin-bottom: 0 !important;
 }
+
 .profile-message-text {
     color: rgb(219, 219, 219);
     font-size: 1.3rem;
     margin-bottom: 0 !important;
     padding: 0.5rem 0
 }
+
 .profile-col {
-    background: linear-gradient(to bottom,  rgba(70, 32, 0, 0.5),
-    rgba(70, 32, 0, 0.8));
-    width: 400px;
-    color: rgb(255, 255, 255);
-    padding: 1.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    width: 100%;
+    flex: 0 0 100%;
+    background: rgba(0, 21, 44, 0.8);
     border-radius: 20px;
+    padding: 1.5rem;
 }
+
+.profile-col > h3 {
+    letter-spacing: 0.05rem;
+    margin-bottom: 1rem;
+    color: rgb(255, 255, 255);
+}
+
 .profile-img-text {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    border-bottom: 1px solid rgb(160, 160, 160);
-    padding: 0.5rem 0;
+    align-items: center;
+    padding: 1rem;
+    background: rgb(0, 42, 90);
+    border-radius: 8px;
 }
 .profile-img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
+}
+
+.profile-img > img {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 }
+
 .small-container {
     margin-left: 0.5rem;
-    font-size: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.user-username {
-    display: block;
-    color: white;
-}
+
+.user-username,
 .user-email {
-    display: block;
-    color: white;
+    margin-bottom: 0;
+    color: rgb(201, 201, 201);
+    letter-spacing: 0.05rem;
+    line-height: 1.5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+
+.profile-btns {
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
 .profile-update-btn {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(240, 156, 0);
-    border: 1px solid  rgb(240, 156, 0);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    background: rgb(255, 38, 0);
     color: rgb(255, 255, 255);
-    margin-top: 0.8rem;
     outline: none !important;
-    transition: all 0.1s ease-in-out;
+    border: none;
+    letter-spacing: 0.05rem;
+    transition: background 0.25s linear;
 }
-.profile-update-btn:hover {
-    background: rgb(141, 92, 0);
-    border: 1px solid  rgb(141, 92, 0);
+
+@media (hover) {
+    .profile-update-btn:hover {
+        background: rgb(255, 94, 0);
+    }
 }
 .profile-update-btn-cancel {
-    padding: 0.2rem 0.3rem;
-    border-radius: 5px;
-    background: rgb(141, 141, 141);
-    border: 1px solid  rgb(141, 141, 141);
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    margin-left: 0.3rem;
+    border-radius: 8px;
+    background: rgb(70, 70, 70);
     color: rgb(255, 255, 255);
-    margin-top: 0.5rem;
+    letter-spacing: 0.05rem;
     text-decoration: none;
     outline: none !important;
-    transition: all 0.1s ease-in-out;
+    transition: background 0.25s linear;
 }
-.profile-update-btn-cancel:hover {
-    background: rgb(49, 49, 49);
-    border: 1px solid  rgb(49, 49, 49);
-    color: rgb(255, 255, 255);
+
+@media (hover) {
+    .profile-update-btn-cancel:hover {
+        background: rgb(100, 100, 100);
+        color: rgb(255, 255, 255);
+    }
 }
 @media screen and (max-width: 400px) {
+
+    .profile-row {
+        width: 90%;
+    }
+
     .profile-col {
-        width: 400px;
-        padding: 0.5rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-radius: 0;
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .profile-img-text {
+        justify-content: flex-start;
+    }
+
+    .profile-img {
+        width: 69px;
+        height: 70px;
+    }
+    
+    .profile-img > img {
+        width: 69px;
+        height: 70px;
+        border-radius: 50%;
+    }
+    
+    .small-container {
+        margin-left: 0;
+        /* text-align: center; */
+    }
+    
+    .user-username,
+    .user-email {
+       padding-top: 0.5rem;
     }
 }
 /* END PROFILE.HTML */

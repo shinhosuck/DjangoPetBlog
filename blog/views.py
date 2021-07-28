@@ -19,15 +19,15 @@ def landing_page(request):
 @login_required
 def create_post(request):
     if request.method == "POST":
-        form = CreatePost(request.POST, request.FILES)
-        form.instance.author = request.user
-        if form.is_valid():
-            post = form.save()
+        create_post_form = CreatePost(request.POST, request.FILES)
+        create_post_form.instance.author = request.user
+        if create_post_form.is_valid():
+            post = create_post_form.save()
             messages.success(request, "New post has been created by user {}".format(request.user))
             return redirect("blog:post-detail", post.pk)
     else:
-        form = CreatePost(request.POST)
-    return render(request, "blog/create_post.html", {"form": form})
+        create_post_form = CreatePost(request.POST)
+    return render(request, "blog/create_post.html", {"create_post_form": create_post_form})
 
 
 def index(request):

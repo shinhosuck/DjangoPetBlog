@@ -7,9 +7,12 @@
 {% endblock title %}
 </title>
 
+
+{% comment %}
 {% for message in messages %}
 <p class="post-detail-message">{{ message }}</p>
 {% endfor %}
+{% endcomment %}
 
 {% block content %}
 <div class="post-detail-row">

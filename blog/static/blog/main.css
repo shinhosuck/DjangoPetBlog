@@ -718,7 +718,7 @@ footer {
     position: absolute;
     z-index: 2;
     top: -100%;
-    width: 60%;
+    width: 731px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -728,13 +728,13 @@ footer {
 }
 
 .show-search-container {
-    top: 15%;
+    top: 70px;
     transition: top 1s linear;
 }
 
 #close-button {
-    width: 90%;
-    flex: 0 0 90%;
+    width: 100%;
+    flex: 0 0 100%;
     margin-bottom: 0.5rem;
     color: rgb(255, 255, 255);
     font-size: 1.5rem;
@@ -744,8 +744,8 @@ footer {
 }
 
 .search-form {
-   flex: 0 0 90%;
-   width: 90%;
+   flex: 0 0 100%;
+   width: 100%;
    display: flex;
    justify-content: center;
    background: rgb(255, 255, 255);
@@ -755,9 +755,9 @@ footer {
 }
 
 .search-input {
-    width: 90%;
-    flex: 0 0 90%;
-    padding: 0.8rem 1rem;
+    flex: 1;
+    padding: 0 1rem;
+    height: 58px;
     border: none;
     outline: none;
     background: transparent;
@@ -765,9 +765,8 @@ footer {
 
 .search-submit-btn {
     background: rgb(30, 68, 112);
-    width: 10%;
-    flex: 0 0 10%;
-    padding: 1rem 0;
+    height: 58px;
+    width: 58px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border: none;
@@ -780,6 +779,12 @@ footer {
     font-size: 1.3rem;
 }
 
+@media screen and (max-width: 731px) {
+    .search-container {
+        width: 90%;
+    }
+
+}
 /* end of search */
 
 /*===========
@@ -1511,7 +1516,6 @@ POST_DETAIL.HTML
     flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem;
-    /* margin: 1.5rem 0; */
     margin-top: 2rem;
     border-radius: 8px;
     background: rgb(167, 225, 245);
@@ -1535,7 +1539,6 @@ POST_DETAIL.HTML
     display: flex;
     flex-wrap: wrap;
     padding-left: 1rem;
-
 }
 
 .post-detail-topic-link {
@@ -2026,6 +2029,7 @@ POST_DETAIL.HTML
         width: 47.2%;
     }
 }
+
 @media screen and (max-width: 687px) {
 
     .post-detail-latest-posts {
@@ -2147,7 +2151,6 @@ MY_POSTS.HTML
     flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem;
-    /* margin: 1.5rem 0; */
     margin-top: 2rem;
     border-radius: 8px;
     background: rgb(167, 225, 245);
@@ -2316,10 +2319,6 @@ MY_POSTS.HTML
 
 
 @media screen and (max-width: 705px) {
-
-    /* .my-post-wrapper {
-        margin-bottom: 0;
-    } */
 
     .my-post-img-container {
         flex: 0 0 100%;
@@ -2766,6 +2765,7 @@ REGISTER.HTML
     justify-content: center;
     align-items: center;
 }
+
 .register-form-col {
     width: 100%;
     flex: 0 0 100%;
@@ -2983,7 +2983,6 @@ LOGIN.HTML
 
 @media screen and (max-width: 770px) {
     .login-bg-img{
-       
         background-attachment: scroll;
     }
 }
@@ -3066,6 +3065,7 @@ PROFILE.HTML
     background: rgb(0, 42, 90);
     border-radius: 8px;
 }
+
 .profile-img {
     width: 70px;
     height: 70px;
@@ -3172,7 +3172,6 @@ PROFILE.HTML
     
     .small-container {
         margin-left: 0;
-        /* text-align: center; */
     }
     
     .user-username,
@@ -3180,49 +3179,103 @@ PROFILE.HTML
        padding-top: 0.5rem;
     }
 }
-/* END PROFILE.HTML */
+
+/*==============
+END PROFILE.HTML
+================*/
 
 /* LOGOUT.HTML */
 .logout-bg-img{
     min-height: 100vh;
-    background: url("images/background.jpg");
-    background-position: center;
+    background:linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .logout-row {
     min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(70, 32, 0, 0.8),
-    rgba(70, 32, 0, 0.4), rgba(70, 32, 0, 0.1));
+    margin: 0 auto;
+    width: 400px;
     display: flex;
-    justify-content: center;
-    align-content: flex-start;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
 }
+
 .logout-col {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    margin-top: 12rem;
     flex: 0 0 100%;
+    width: 100;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: rgba(0, 21, 44, 0.8);
 }
-.signed-out {
-    flex: 0 0 100%
+
+.logout-col > h2 {
+    font-size: 2.75rem;
+    flex: 0 0 100%;
+    width: 100%;
+    letter-spacing: 0.05rem;
+    color:rgb(255, 255, 255);
+    text-align: center;
 }
-.logout-col a {
-    display: block;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 0.4rem 0;
-    background: rgba(255, 153, 0, 0.8);
-    font-size: 1.1rem;
-    border-radius: 20px;
+
+.signed-out-btns {
     margin-top: 0.5rem;
-    width: 150px;
 }
+
+.signed-out-btns > a {
+    display: block;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 30px;
+    padding: 0.7rem 1rem;
+}
+
+.sign-in-again {
+    background: rgb(255, 38, 0);
+}
+
+@media (hover) {
+    .sign-in-again:hover {
+        background: rgb(255, 94, 0);
+        color: rgb(255, 255, 255);
+    }
+}
+
+.go-home {
+    background: rgb(70, 70, 70);
+}
+
+@media (hover) {
+    .go-home:hover {
+        background: rgb(100, 100, 100);
+        color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .logout-bg-img {
+        background-attachment: scroll;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .logout-row {
+        width: 90%
+    }
+
+    .logout-col {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
 /* END LOGOUT.HTML */
 
 /*===============
@@ -3238,6 +3291,7 @@ CREATE_POST.HTML
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 .form-row {
     margin: 0 auto;
     min-height: 100vh;
@@ -3246,6 +3300,7 @@ CREATE_POST.HTML
     align-items: center;
     justify-content: center;
 }
+
 .form-col {
     width: 100%;
     flex: 0 0 100%;
@@ -3294,10 +3349,18 @@ CREATE_POST.HTML
     outline: none !important;
     transition: background 0.25s linear;
 }
+
 @media (hover) {
     .create-post-cancel:hover {
         background: rgb(100, 100, 100);
         color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    .create-post-bg-img {
+        background-attachment: scroll;
     }
 }
 
@@ -3315,3 +3378,100 @@ CREATE_POST.HTML
 /*==================
 END CREATE_POST.HTML
 ====================*/
+
+/*==============
+UPDATE_POST.HTML
+================*/
+
+.update-post-bg-img {
+    min-height: 100vh;
+    background:linear-gradient(rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3)), url("images/bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.update-post-form-row {
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-post-form-col {
+    width: 100%;
+    flex: 0 0 100%;
+    background: rgba(0, 21, 44, 0.8);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.update-post-form-col > h3 {
+    letter-spacing: 0.05rem;
+}
+
+.update-post-btns {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+.update-post-btn {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    background: rgb(255, 38, 0);
+    color: rgb(255, 255, 255);
+    outline: none !important;
+    border: none;
+    letter-spacing: 0.05rem;
+    transition: background 0.25s linear;
+}
+
+@media (hover) {
+    .update-post-btn:hover {
+        background: rgb(255, 94, 0);
+    }
+}
+
+.update-post-btn-cancel {
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    margin-left: 0.3rem;
+    border-radius: 8px;
+    background: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    outline: none !important;
+    transition: background 0.25s linear;
+}
+
+@media (hover) {
+    .update-post-btn-cancel:hover {
+        background: rgb(100, 100, 100);
+        color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    .update-post-bg-img {
+        background-attachment: scroll;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .update-post-form-row {
+        width: 90%
+    }
+
+    .update-post-form-col {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}

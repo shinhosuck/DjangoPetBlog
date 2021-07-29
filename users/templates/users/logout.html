@@ -1,29 +1,24 @@
 {% extends "blog/base.html" %}
 
-{% block title %}
-    <title>Sign Out</title>
-{% endblock title %}
 
-{% block navbar %}
+<title>
+{% block title %}
+    Sign Out
+{% endblock title %}
+</title>
+    
+{% block navbar%}
 {% endblock navbar%}
 
 {% block content %}
 <div class="logout-bg-img">
     <div class="logout-row">
-        <ul class="landing-page-nav-container" style="flex: 0 0 100%">
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'blog:home' %}">Home</a>
-            </li>
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'users:login' %}">Sign In</a>
-            </li>
-            <li class="landing-page-nav-item">
-                <a class="landing-page-nav-link" href="{% url 'blog:landing_page' %}">Exit Site</a>
-            </li>
-        </ul>
         <div class="logout-col">
-            <h3 class="signed-out">You are signed out!</h3>
-            <a href="{% url 'users:login' %}">Sign in again</a>
+            <h2>You are signed out!</h2>
+            <div class="signed-out-btns">
+                <a href="{% url 'users:login' %}" class="sign-in-again">Sign in again</a>
+                <a href="{% url 'blog:home' %}" class="go-home">Browse anonymously</a>
+            </div>
         </div>
     </div>
 </div>

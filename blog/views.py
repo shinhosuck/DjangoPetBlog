@@ -89,13 +89,19 @@ def update_post(request, pk):
     posts = user.post_set.all()
     if post in posts:
         if request.method == "POST":
-            form = UpdatePost(request.POST, request.FILES, instance=post)
-            if form.is_valid():
-                form.save()
+            update_post_form = UpdatePost(request.POST, request.FILES, instance=post)
+            if update_post_form.is_valid():
+                update_post_form.save()
                 messages.success(request, f"Your post \"{post.title}\" has been updated!")
             return redirect("blog:post-detail", pk=pk)
         else:
-            form = UpdatePost(instance=post)
-        return render(request, "blog/update_post.html", {"form":form, "post": post})
+            update_post_form = UpdatePost(instance=post)
+
+            context = {
+                "update_post_form":update_post_form, 
+                "post": post
+            }
+
+            return render(request, "blog/update_post.html", context)
     else:
         return redirect("blog:home")

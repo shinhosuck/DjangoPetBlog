@@ -2,83 +2,84 @@
 {% load crispy_forms_tags %}
 
 
+
+<title>
 {% block title %}
-<title>Update Post</title>
+    {{ post.title }} Update
 {% endblock title %}
+</title>
+
 
 {% block navbar%}
 {% endblock navbar%}
 
 {% block content %}
 <style>
-    #div_id_title {
-        margin-top: 0.5rem;
-    }
-    #div_id_topic {
-        margin-top: 0.5rem;
-    }
-    #div_id_post_image {
-        margin-top: 0.5rem;
-    }
+    #div_id_title,
+    #div_id_topic,
+    #div_id_post_image,
     #div_id_content {
-        margin-top: 0.5rem;
+        margin-top: 0.7rem;
     }
-    #div_id_post_image label {
+
+    #div_id_title > label,
+    #div_id_topic > label,
+    #div_id_post_image > label,
+    #div_id_content > label {
+        color: rgb(201, 201, 201);
+        margin-bottom: 0.2rem;
+        letter-spacing: 0.05rem;
+    }
+
+    #div_id_title > div > #id_title,
+    #div_id_content > div > #id_content,
+    #div_id_topic > div > #id_topic{
+        border: none;
+        box-shadow: none;
+        padding: 0.5rem 0.75rem;
+        background: rgb(191, 221, 226);
+        color: rgb(0, 0, 0) !important;
+    }
+    #div_id_content > div > #id_content {
+        height: 130px;
+        resize: none;
+    }
+
+    #div_id_post_image > div> #id_post_image {
+        margin-top: 0.2rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.05rem;
+        border: 1px solid rgb(0, 42, 82);
+        padding: 0.7rem;
+        width: 100%;
+        color: rgb(201, 201, 201) !important;
+        border-radius: 8px;
+    }
+
+    #div_id_post_image > div {
+        font-size: 0.95rem !important;
+    }
+
+    #div_id_post_image > label {
         margin-bottom: 0;
     }
-    #div_id_post_image div {
-        font-size: 0.8rem;
-    }
-    #div_id_content textarea{
-        height: 150px;
-    }
-    .requiredField {
-        margin-bottom: 0.5rem;
-    }
-    #error_1_id_title {
-        display: none;
-    }
-    #error_1_id_post_image {
-        display: none;
-    }
-    #error_1_id_content {
-        display: none;
-    }
-    #error_1_id_topic {
-        margin-bottom: 0.5rem;
-    }
-    #id_title {
-        border: none;
-        box-shadow: none;
-        background: rgb(255, 255, 255);
-    }
-    #id_content {
-        border: none;
-        box-shadow: none;
-        background: rgb(255, 255, 255);
-    }
-    #id_topic {
-        border: none;
-        box-shadow: none;
-    }
-    #id_post_image {
-        font-size: 0.8rem;
-    }
+    
     strong {
-        color: rgb(255, 184, 51);
-        font-size: 0.8rem;
-        font-family: sans-serif;
+        display: none;
     }
+
 </style>
-<div class="create-post-bg-img">
-    <div class="form-row">
-        <div class="form-col">
-            <h2>Update Post</h2>
+<div class="update-post-bg-img">
+    <div class="update-post-form-row">
+        <div class="update-post-form-col">
+            <h3>Update Post</h3>
             <form method="POST" action="#" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="create-post-btn">Submit</button>
-                <a type="button" href="{% url 'blog:post-detail' post.pk %}" class="create-post-btn-cancel">Cancel</a>
+                {{ update_post_form|crispy }}
+                <div class="update-post-btns">
+                    <button class="update-post-btn" type="submit">Submit</button>
+                    <a class="update-post-btn-cancel" href="{% url 'blog:post-detail' post.pk %}">Cancel</a>
+                </div>
             </form>
         </div>
     </div>

@@ -252,11 +252,25 @@
         const times = document.querySelector(".times")
         const links = document.querySelector(".links")
 
+        const search = document.querySelector("#search")
+        const searchContainer = document.querySelector(".search-container")
+        const closeButton = document.querySelector("#close-button")
+
+        const userUsername = document.querySelector(".user-username")
+        const userDropdownAccounts = document.querySelector(".user-dropdown-accounts")
+        const downArrow = document.querySelector("#down-arrow")
+        const upArrow = document.querySelector("#up-arrow")
+
+        // show mobile nav bar
         bars.addEventListener("click", function(){
             links.classList.add("show-mobile-nav-links")
             bars.style.display = "none"
             times.style.display = "block"
             document.body.style.overflow = "hidden"
+
+            if(searchContainer.classList.contains("show-search-container")) {
+                searchContainer.classList.remove("show-search-container")
+            }
         })
 
         times.addEventListener("click", function(){
@@ -276,12 +290,19 @@
             }
         })
 
-        const search = document.querySelector("#search")
-        const searchContainer = document.querySelector(".search-container")
-        const closeButton = document.querySelector("#close-button")
+        // const search = document.querySelector("#search")
+        // const searchContainer = document.querySelector(".search-container")
+        // const closeButton = document.querySelector("#close-button")
 
+        // show search container
         search.addEventListener("click", function(){
             searchContainer.classList.add("show-search-container")
+
+            if(links.classList.contains("show-mobile-nav-links")) {
+                links.classList.remove("show-mobile-nav-links")
+                bars.style.display = "block"
+                times.style.display = "none"
+            }
            
             setTimeout(function(){
                 closeButton.style.opacity = "1"
@@ -294,11 +315,12 @@
 
         })
 
-        const userUsername = document.querySelector(".user-username")
-        const userDropdownAccounts = document.querySelector(".user-dropdown-accounts")
-        const downArrow = document.querySelector("#down-arrow")
-        const upArrow = document.querySelector("#up-arrow")
+        // const userUsername = document.querySelector(".user-username")
+        // const userDropdownAccounts = document.querySelector(".user-dropdown-accounts")
+        // const downArrow = document.querySelector("#down-arrow")
+        // const upArrow = document.querySelector("#up-arrow")
 
+        // show user accounts
         userUsername.addEventListener("click", function(){
             userDropdownAccounts.classList.toggle("show-dropdown-accounts")
             if(userDropdownAccounts.classList.contains("show-dropdown-accounts")) {

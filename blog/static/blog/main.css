@@ -783,7 +783,6 @@ footer {
     .search-container {
         width: 90%;
     }
-
 }
 /* end of search */
 
@@ -1516,6 +1515,7 @@ POST_DETAIL.HTML
     flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem;
+    /* margin: 1.5rem 0; */
     margin-top: 2rem;
     border-radius: 8px;
     background: rgb(167, 225, 245);
@@ -1539,6 +1539,7 @@ POST_DETAIL.HTML
     display: flex;
     flex-wrap: wrap;
     padding-left: 1rem;
+
 }
 
 .post-detail-topic-link {
@@ -2029,7 +2030,6 @@ POST_DETAIL.HTML
         width: 47.2%;
     }
 }
-
 @media screen and (max-width: 687px) {
 
     .post-detail-latest-posts {
@@ -2151,6 +2151,7 @@ MY_POSTS.HTML
     flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem;
+    /* margin: 1.5rem 0; */
     margin-top: 2rem;
     border-radius: 8px;
     background: rgb(167, 225, 245);
@@ -2319,6 +2320,10 @@ MY_POSTS.HTML
 
 
 @media screen and (max-width: 705px) {
+
+    /* .my-post-wrapper {
+        margin-bottom: 0;
+    } */
 
     .my-post-img-container {
         flex: 0 0 100%;
@@ -2765,7 +2770,6 @@ REGISTER.HTML
     justify-content: center;
     align-items: center;
 }
-
 .register-form-col {
     width: 100%;
     flex: 0 0 100%;
@@ -2983,6 +2987,7 @@ LOGIN.HTML
 
 @media screen and (max-width: 770px) {
     .login-bg-img{
+       
         background-attachment: scroll;
     }
 }
@@ -3065,7 +3070,6 @@ PROFILE.HTML
     background: rgb(0, 42, 90);
     border-radius: 8px;
 }
-
 .profile-img {
     width: 70px;
     height: 70px;
@@ -3241,22 +3245,8 @@ END PROFILE.HTML
     background: rgb(255, 38, 0);
 }
 
-@media (hover) {
-    .sign-in-again:hover {
-        background: rgb(255, 94, 0);
-        color: rgb(255, 255, 255);
-    }
-}
-
 .go-home {
     background: rgb(70, 70, 70);
-}
-
-@media (hover) {
-    .go-home:hover {
-        background: rgb(100, 100, 100);
-        color: rgb(255, 255, 255);
-    }
 }
 
 @media screen and (max-width: 770px) {
@@ -3300,7 +3290,6 @@ CREATE_POST.HTML
     align-items: center;
     justify-content: center;
 }
-
 .form-col {
     width: 100%;
     flex: 0 0 100%;
@@ -3349,7 +3338,6 @@ CREATE_POST.HTML
     outline: none !important;
     transition: background 0.25s linear;
 }
-
 @media (hover) {
     .create-post-cancel:hover {
         background: rgb(100, 100, 100);
@@ -3401,7 +3389,6 @@ UPDATE_POST.HTML
     align-items: center;
     justify-content: center;
 }
-
 .update-post-form-col {
     width: 100%;
     flex: 0 0 100%;
@@ -3450,7 +3437,6 @@ UPDATE_POST.HTML
     outline: none !important;
     transition: background 0.25s linear;
 }
-
 @media (hover) {
     .update-post-btn-cancel:hover {
         background: rgb(100, 100, 100);

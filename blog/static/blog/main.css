@@ -748,10 +748,8 @@ footer {
    width: 100%;
    display: flex;
    justify-content: center;
-   background: rgb(255, 255, 255);
+   background: transparent;
    border-radius: 8px;
-   border-top-left-radius: 6px;
-   border-bottom-left-radius: 6px;
 }
 
 .search-input {
@@ -760,13 +758,15 @@ footer {
     height: 58px;
     border: none;
     outline: none;
-    background: transparent;
+    background: rgb(255, 255, 255);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .search-submit-btn {
     background: rgb(30, 68, 112);
-    height: 58px;
-    width: 58px;
+    height: 60px;
+    width: 60px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border: none;

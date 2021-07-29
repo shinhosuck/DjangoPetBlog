@@ -481,6 +481,10 @@ BASE.HTML
 
 @media screen and (max-width: 775px) {
 
+    .bg-img {
+        background-attachment: scroll;
+    }
+
     .navbar-container {
         position: relative;
     }
@@ -2751,6 +2755,7 @@ REGISTER.HTML
     background-attachment: fixed;
     padding: 1rem 0; 
 }
+
 .register-form-row {
     min-height: 100vh;
     width: 400px;
@@ -2840,6 +2845,14 @@ REGISTER.HTML
     }
 }
 
+@media screen and (max-width: 770px) {
+
+    .register-bg-img{
+        background-attachment: scroll;
+         
+    }
+}
+
 @media screen and (max-width: 410px) {
 
     .register-form-row {
@@ -2866,6 +2879,7 @@ LOGIN.HTML
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 .login-row{
     width: 400px;
     margin: 0 auto;
@@ -2964,6 +2978,13 @@ LOGIN.HTML
 @media (hover) {
     .login-a:hover {
         color: rgb(0, 255, 191);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .login-bg-img{
+       
+        background-attachment: scroll;
     }
 }
 
@@ -3115,6 +3136,14 @@ PROFILE.HTML
         color: rgb(255, 255, 255);
     }
 }
+
+@media screen and (max-width: 770px){
+    .profile-bg-img{
+       
+        background-attachment: scroll;
+    }
+}
+
 @media screen and (max-width: 400px) {
 
     .profile-row {
@@ -3282,4 +3311,7 @@ CREATE_POST.HTML
         flex: 0 0 100%;
     }
 }
-/* END CREATE_POST.HTML */
+
+/*==================
+END CREATE_POST.HTML
+====================*/

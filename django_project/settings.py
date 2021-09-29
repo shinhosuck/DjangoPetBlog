@@ -25,7 +25,7 @@ SECRET_KEY = 'h%jm-tgywn5ipyx_dj5vwrd69p(fr32b!$jooi42#p-$5kmo#3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.43.248", "pawpalblog.herokuapp.com"]
+ALLOWED_HOSTS = ["pawpalblog.herokuapp.com", "10.0.0.241", "127.0.0.1"]
 
 
 # Application definition
@@ -124,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 

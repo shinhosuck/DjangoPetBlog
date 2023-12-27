@@ -20,6 +20,7 @@ def landing_page(request):
 def create_post(request):
     if request.method == "POST":
         create_post_form = CreatePost(request.POST, request.FILES)
+        print(dir(create_post_form))
         create_post_form.instance.author = request.user
         if create_post_form.is_valid():
             post = create_post_form.save()

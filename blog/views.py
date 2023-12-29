@@ -6,6 +6,8 @@ from blog.forms import CreatePost, UpdatePost
 from blog.models import Post, Topic
 
 
+
+
 def users(request):
     users = User.objects.all()
     print(users)

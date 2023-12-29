@@ -8,7 +8,7 @@ from PIL import Image
 class Topic(models.Model):
     name = models.CharField(max_length=50)
     topic_image = models.ImageField(upload_to="topic_images")
-    description = models.CharField(max_length=200, blank=True)
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -18,7 +18,7 @@ class Post(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    post_image = models.ImageField(default="default_post_img.jpg", upload_to="post_images")
+    post_image = models.ImageField(default="post_images/default.jpg", upload_to="post_images")
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     likes = models.ManyToManyField(User, blank=True, related_name="post_likes")
@@ -27,6 +27,8 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        if not self.image:
+            self.image = 'post_images/default.jpg'
         super().save(*args, **kwargs)
         img = Image.open(self.post_image.path)
         if img.width > 600 and img.height > 600:

@@ -30,13 +30,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party
+    'rest_framework.authtoken',
+    'rest_framework',
+    'corsheaders',
+    "crispy_forms",
     #My_apps
     "blog.apps.BlogConfig",
     "users.apps.UsersConfig",
-    "crispy_forms"
+    "blog_api.apps.BlogApiConfig",
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -81,19 +87,6 @@ DATABASES = {
     }
 }
 
-# FOR HEROKU DATABASE
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "dfd482irm3en6s",
-#         "USER": "wtplnxfwdofbzl",
-#         "PASSWORD": "338d8adad270791d38777df7ffafdf05c17637052745474e8c23e03eb51f4cbb",
-#         "HOST": "ec2-52-54-174-5.compute-1.amazonaws.com",
-#         "PORT": "5432"
-#     }
-# }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -132,6 +125,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 STATICFILES_DIR = [os.path.join(BASE_DIR, "static")]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -143,3 +137,18 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "blog:home"
 LOGIN_URL = "users:login"
+
+
+# cors-headers
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)

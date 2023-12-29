@@ -1,17 +1,21 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
-from blog.models import Post 
+from blog.models import Post, Topic
 from users.models import Profile
 
-from django.conf import settings
-
-MEDIA_ROOT = settings.MEDIA_ROOT
 
 
+
+class TopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topic 
+        fields = '__all__'
 
 
 class PostSerializer(serializers.ModelSerializer):
+    topic = serializers.CharField(source='topic.name')
+    author = serializers.CharField(source='author.username')
     class Meta:
         model = Post 
         fields = '__all__'
